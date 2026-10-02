@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#07101d">
+<meta name="description" content="МедТермин — мобильная игра на угадывание медицинских терминов.">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>МедТермин — угадай медицинский термин</title>
+<style>
+:root{--bg:#07101d;--panel:#101a2b;--panel2:#17243a;--line:#2b3b57;--text:#eef4ff;--muted:#9eabc2;--blue:#3a7bea;--green:#1f9b6b;--green2:#42d99d;--yellow:#8b7224;--gray:#354055;--danger:#b65353;--tile:48px;--gap:6px}
+*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{background:radial-gradient(circle at 50% 0,#1b3158,#08101d 48%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.app{max-width:1000px;margin:auto;padding:20px 16px 40px}
+header{display:flex;justify-content:space-between;gap:14px;align-items:center}.brand h1{margin:0;font-size:28px}.brand p{margin:4px 0;color:var(--muted)}button,select{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}button{cursor:pointer}button:hover{filter:brightness(1.12)}.primary{background:var(--blue);border-color:#4c89ef}.ghost{background:transparent}.top-actions{display:flex;gap:8px}
+.card{background:#101a2bf2;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 35px #0003;margin-top:16px}.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.control label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.control select{width:100%}
+.status{display:flex;justify-content:space-between;gap:10px;margin:15px 0 8px;color:var(--muted);align-items:center}.badges{display:flex;gap:7px;flex-wrap:wrap}.badge{background:var(--panel2);padding:5px 9px;border-radius:999px;color:#d3def2;font-size:12px}.clue{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px;line-height:1.45;margin-bottom:10px}.hidden{display:none!important}.key-capture{position:fixed;left:-10000px;top:-10000px;width:1px;height:1px;opacity:0;border:0;padding:0}
+.game-stage{width:100%;display:flex;justify-content:center}.board-wrap{width:100%;display:flex;justify-content:center;overflow-x:auto;overflow-y:hidden;padding:10px 2px 14px;scrollbar-width:thin}.board{display:flex;flex-direction:column;gap:var(--gap);width:max-content;min-width:max-content;margin:0 auto;visibility:visible}.row{display:flex;flex-direction:row;gap:var(--gap);width:max-content;min-height:var(--tile)}.tile{flex:0 0 var(--tile);width:var(--tile);min-width:var(--tile);height:var(--tile);border:2px solid #35445f;background:#0b1525;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:850;text-transform:uppercase;transition:transform .12s,background .18s,border-color .18s,box-shadow .18s}.tile.filled{border-color:#627492}.tile.fixed{background:var(--green);border-color:var(--green2);color:white;box-shadow:0 0 0 1px #ffffff12 inset}.tile.correct{background:var(--green);border-color:var(--green2)}.tile.present{background:var(--yellow);border-color:#b89a37}.tile.absent{background:var(--gray);border-color:var(--gray)}.tile.active{border-color:#6e9cf0;box-shadow:0 0 0 2px #3a7bea22}.tile.pop{animation:pop .12s ease-out}@keyframes pop{50%{transform:scale(1.06)}}
+.progress{height:6px;background:#26344c;border-radius:99px;overflow:hidden;margin:2px auto 12px;max-width:760px}.progress i{display:block;height:100%;background:var(--blue);width:0;transition:width .2s}.message{text-align:center;min-height:28px;color:#c0cce0;padding-top:4px;font-weight:650}.keyboard{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:760px;margin:10px auto 0}.key{min-width:32px;height:40px;padding:0 7px;border-radius:7px;font-weight:750}.key.correct{background:var(--green);border-color:var(--green)}.key.present{background:var(--yellow);border-color:var(--yellow)}.key.absent{background:var(--gray);border-color:var(--gray)}.actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:9px}
+.note{color:var(--muted);font-size:12px;line-height:1.5;margin-top:16px;text-align:center}.modal-backdrop{position:fixed;inset:0;background:#030813cc;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}.modal{width:min(520px,100%);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 30px 80px #0008}.modal h2{margin:0 0 14px}.mode-list{display:grid;gap:10px}.mode-list button{width:100%;text-align:left;padding:14px}.settings-actions{display:flex;justify-content:flex-end;margin-top:14px}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.close{width:40px;height:40px;padding:0}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.stat{background:linear-gradient(145deg,#172842,#101b2d);border:1px solid #2b3f5f;padding:13px 9px;border-radius:15px;text-align:center;box-shadow:inset 0 1px #ffffff08}.stat b{font-size:25px;line-height:1.1;display:block}.stat span{font-size:11px;color:var(--muted)}.stat.accent{border-color:#3b7de8}.stat.success{border-color:#2b9b71}.stat.gold{border-color:#8b7224}.stats-summary{display:flex;justify-content:space-between;gap:10px;margin:14px 0 8px;padding:11px 13px;background:#0b1525;border:1px solid var(--line);border-radius:13px;color:#cbd7eb;font-size:13px}.stats-summary b{color:#fff}.history{max-height:260px;overflow:auto;margin-top:8px}.history div{border-bottom:1px solid var(--line);padding:10px 4px;font-size:13px;display:flex;justify-content:space-between;gap:8px}.history .win{color:#54dda5}.history .loss{color:#9eabc2}.history-empty{text-align:center;padding:20px 8px;color:var(--muted)}.settings-intro,.help-intro{color:#aebbd0;font-size:13px;line-height:1.5;margin:-4px 0 14px}.settings-section{background:#0b1525;border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:10px}.settings-section h3{margin:0 0 9px;font-size:14px}.help-steps{display:grid;gap:9px}.help-step{display:flex;gap:10px;align-items:flex-start;background:#0b1525;border:1px solid var(--line);border-radius:13px;padding:11px}.help-num{flex:0 0 28px;height:28px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900}.help-step b{display:block;margin-bottom:2px}.legend{display:grid;gap:7px;margin-top:12px}.legend-item{display:flex;align-items:center;gap:9px;font-size:13px;color:#cbd7eb}.legend-tile{width:25px;height:25px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-weight:900}.legend-tile.correct{background:var(--green)}.legend-tile.present{background:var(--yellow)}.legend-tile.absent{background:var(--gray)}.win-modal .modal{text-align:center;border-color:#2b9b71}.victory-icon{font-size:52px;animation:bounce .7s ease}@keyframes bounce{50%{transform:translateY(-8px)}}.win-title{font-size:30px;font-weight:950;margin:4px 0}.win-answer{font-size:27px;font-weight:900;margin:8px}.win-definition{color:#cbd5e8;line-height:1.5}.win-meta{color:var(--muted);font-size:13px;margin:8px 0 16px}.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;top:-20px;width:8px;height:16px;background:#fff;animation:fall 1.5s linear forwards;opacity:.9}.confetti i:nth-child(3n){background:#3a7bea}.confetti i:nth-child(3n+1){background:#42d99d}.confetti i:nth-child(4n){background:#f2c84b}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@media(max-width:900px){.controls{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){
+  :root{--tile:38px;--gap:4px}
+  html,body{width:100%;overflow-x:hidden}
+  body{min-height:100dvh;-webkit-tap-highlight-color:transparent}
+  .app{width:100%;padding:calc(8px + env(safe-area-inset-top)) 8px calc(18px + env(safe-area-inset-bottom))}
+  header{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+  .brand{text-align:center}
+  .brand h1{font-size:22px;line-height:1.15}
+  .brand p{font-size:12px;margin:3px 0 0}
+  .top-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;width:100%}
+  .top-actions button{min-height:42px;padding:6px 3px;font-size:11px;border-radius:9px}
+  .card{padding:9px;border-radius:16px;margin-top:9px}
+  .status{margin:8px 0 6px;align-items:flex-start}
+  .badges{justify-content:flex-end;gap:4px}
+  .badge{font-size:10px;padding:4px 6px}
+  .clue{font-size:13px;padding:10px;margin-bottom:8px}
+  .game-stage{width:100%;min-width:0}
+  .board-wrap{width:100%;max-width:100%;padding:8px 0 10px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x}
+  .board-wrap::-webkit-scrollbar{display:none}
+  .board{gap:var(--gap)}
+  .row{gap:var(--gap)}
+  .tile{font-size:16px;border-radius:7px}
+  .progress{height:5px;margin:0 auto 7px}
+  .message{font-size:12px;min-height:25px;padding-top:3px}
+  .keyboard{width:100%;max-width:100%;gap:4px;margin:8px auto 0;display:flex;justify-content:center}
+  .key{flex:0 0 calc((100% - 36px) / 10);width:calc((100% - 36px) / 10);min-width:27px;max-width:38px;height:42px;padding:0;border-radius:8px;font-size:15px;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+  .actions{gap:5px;margin-top:7px}
+  .actions button{min-height:40px;font-size:12px;padding:8px 10px}
+  .note{font-size:10px;line-height:1.4;margin-top:10px}
+  .modal-backdrop{padding:10px}
+  .modal{width:100%;max-height:calc(100dvh - 20px);overflow:auto;padding:16px;border-radius:16px}
+  .modal h2{font-size:20px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .stat{padding:9px}
+  .stat b{font-size:20px}
+  .stat span{font-size:10px}
+  .win-title{font-size:26px}
+  .win-answer{font-size:23px}
+  button,select{font-size:16px}
+}
+@media(max-width:360px){
+  :root{--tile:34px;--gap:3px}
+  .top-actions button{font-size:11px}
+  .key{min-width:25px;height:39px;font-size:14px}
+  .tile{font-size:15px}
+}
+@media(orientation:landscape) and (max-height:520px){
+  .app{padding-top:6px;padding-bottom:8px}
+  .brand p,.note{display:none}
+  .card{margin-top:6px;padding:7px}
+  .keyboard{margin-top:5px}
+  .key{height:34px}
+  .tile{height:34px;min-height:34px;width:34px;min-width:34px}
+  :root{--tile:34px;--gap:3px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand"><h1>🩺 МедТермин</h1><p>Угадывай медицинские термины любой длины</p></div>
+  <div class="top-actions"><button id="modeBtn">Режим: Слово дня</button><button id="settingsBtn">⚙ Настройки</button><button id="statsBtn">📊 Статистика</button><button id="helpBtn">❔ Как играть</button></div>
+</header>
+<select id="mode" class="hidden"><option value="daily" selected>Термин дня</option><option value="classic">Классика</option><option value="definition">По определению</option><option value="clue">С подсказками</option></select>
+<main class="card">
+  <div class="status"><span id="round"></span><div class="badges"><span class="badge" id="badge"></span><span class="badge" id="pool"></span></div></div>
+  <div id="clue" class="clue hidden"></div>
+  <div class="progress"><i id="progress"></i></div>
+  <div class="game-stage"><div class="board-wrap" id="boardWrap"><div id="board" class="board"></div></div></div>
+  <div id="msg" class="message"></div>
+  <div id="keys" class="keyboard"></div>
+  <div class="actions"><button class="ghost hidden" id="hint">Подсказка</button><button class="ghost" id="clear">Очистить строку</button></div>
+  <div class="note">Печатай прямо в кубики. Enter — проверить, Backspace — удалить. Зеленые буквы, найденные на правильных местах, автоматически переносятся в следующую строку.</div>
+</main>
+</div>
+
+
+<div id="modeModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>Режим игры</h2><button class="ghost close" id="closeMode">×</button></div><div class="mode-list"><button data-mode="daily">📅 Слово дня</button><button data-mode="classic">🎯 Классика</button><button data-mode="definition">📖 По определению</button><button data-mode="clue">💡 С подсказками</button></div></div></div>
+<div id="settingsModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>⚙ Настройки</h2><button class="ghost close" id="closeSettings">×</button></div><p class="settings-intro">Настройки влияют на «Классику», «По определению» и «С подсказками». Для «Слова дня» действует отдельный фиксированный отбор: до 9 букв и не сложнее средней.</p><div class="settings-section"><h3>Фильтры терминов</h3><div class="controls">
+        <div class="control"><label>Тип</label><select id="type"><option value="all">Все типы</option></select></div>
+    <div class="control"><label>Длина</label><select id="len"><option value="any">Любая</option><option value="4-6">4–6</option><option value="7-9">7–9</option><option value="10-12">10–12</option><option value="13-99">13+</option></select></div>
+    <div class="control"><label>Раздел</label><select id="cat"><option value="all">Все разделы</option></select></div>
+    <div class="control"><label>Сложность</label><select id="difficulty"><option value="all">Любая</option><option value="легкий">Лёгкая</option><option value="средний">Средняя</option><option value="сложный">Сложная</option></select></div>
+  </div></div><div class="settings-section"><h3>Правила</h3><div style="color:#aebbd0;font-size:13px;line-height:1.5">Можно вводить любую комбинацию букв — она проверяется по совпадению с загаданным термином. Словарь используется для выбора ответа, а не для запрета попытки.</div></div><div class="settings-actions"><button class="primary" id="applySettings">Применить</button></div></div></div>
+<div id="statsModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>📊 Статистика</h2><button class="ghost close" id="closeStats">×</button></div><div class="stats-grid"><div class="stat accent"><b id="played">0</b><span>сыграно</span></div><div class="stat success"><b id="wins">0</b><span>решено</span></div><div class="stat gold"><b id="streak">0</b><span>текущая серия</span></div><div class="stat"><b id="best">0</b><span>лучшая серия</span></div></div><div class="stats-summary"><span>Процент побед</span><b id="winRate">0%</b></div><h3 style="margin:16px 0 6px">Последние игры</h3><div id="history" class="history"></div></div></div>
+
+<div id="helpModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>❔ Как играть</h2><button class="ghost close" id="closeHelp">×</button></div><p class="help-intro">Твоя задача — угадать медицинский термин за ограниченное число попыток. Термины могут быть разной длины.</p><div class="help-steps"><div class="help-step"><span class="help-num">1</span><div><b>Введи слово</b><span>Нажимай буквы на экранной клавиатуре или используй физическую клавиатуру.</span></div></div><div class="help-step"><span class="help-num">2</span><div><b>Проверь попытку</b><span>Когда все кубики заполнены, нажми ↵ Enter.</span></div></div><div class="help-step"><span class="help-num">3</span><div><b>Смотри на подсказку цветом</b><span>Цвет каждой буквы показывает, насколько она совпала с загаданным термином.</span></div></div><div class="help-step"><span class="help-num">4</span><div><b>Используй найденные буквы</b><span>Правильные зелёные буквы автоматически переносятся в следующую строку.</span></div></div></div><div class="legend"><div class="legend-item"><span class="legend-tile correct">А</span><span><b>Зелёный</b> — буква есть и стоит на своём месте.</span></div><div class="legend-item"><span class="legend-tile present">А</span><span><b>Жёлтый</b> — буква есть, но находится в другом месте.</span></div><div class="legend-item"><span class="legend-tile absent">А</span><span><b>Серый</b> — такой буквы в ответе нет.</span></div></div><div class="settings-section" style="margin-top:14px"><b>Режим «Слово дня»</b><div style="color:#aebbd0;font-size:13px;line-height:1.5;margin-top:4px">Один и тот же термин для всех игроков в течение календарного дня. Он выбирается только из слов до 9 букв и не сложнее средней сложности. Сыграть можно один раз в день.</div></div></div></div>
+<div id="winModal" class="modal-backdrop hidden win-modal"><div class="modal"><div class="confetti" id="confetti"></div><div class="victory-icon">🏆</div><div class="win-title" id="winTitle">Победа!</div><div id="answer" class="win-answer"></div><div id="def" class="win-definition"></div><div id="meta" class="win-meta"></div><button class="primary" id="again">Следующий термин</button></div></div>
+
+<script src="./data/medical_terms.js"></script>
+<script>
+'use strict';
+const TERMS = Array.isArray(window.TERMS) ? window.TERMS : [];
+const ALPHABET = 'йцукенгшщзхъфывапролджэячсмитьбю'.split('');
+const $ = id => document.getElementById(id);
+const norm = s => String(s || '').toLowerCase().replace(/ё/g,'е').replace(/[^а-я]/g,'');
+const MODE_NAMES = {daily:'Слово дня',classic:'Классика',definition:'По определению',clue:'С подсказками'};
+let G = {mode:'daily', len:'any', type:'all', cat:'all', difficulty:'all', answer:null, rows:[], current:[], max:6, over:false, hints:0};
+
+function stats(){try{return JSON.parse(localStorage.getItem('medterm.v2'))||{played:0,wins:0,streak:0,best:0,history:[]}}catch(e){return{played:0,wins:0,streak:0,best:0,history:[]}}}
+function saveStats(s){localStorage.setItem('medterm.v2',JSON.stringify(s))}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function regularPool(){
+  const p=TERMS.filter(t=>{
+    const l=norm(t.norm||t.word).length;
+    let lenOK=true;
+    if(G.len!=='any'){const [a,b]=G.len.split('-').map(Number);lenOK=l>=a&&l<=b}
+    return lenOK&&(G.type==='all'||t.type===G.type)&&(G.cat==='all'||t.category===G.cat)&&(G.difficulty==='all'||t.difficulty===G.difficulty);
+  });
+  return p.length?p:TERMS;
+}
+function dailyPool(){
+  const p=TERMS.filter(t=>{
+    const l=norm(t.norm||t.word).length;
+    return l<=9 && (t.difficulty==='легкий'||t.difficulty==='средний');
+  });
+  return p.length?p:TERMS.filter(t=>norm(t.norm||t.word).length<=9);
+}
+function pool(){return G.mode==='daily'?dailyPool():regularPool()}
+function todayKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function dailyIndex(p){const key=todayKey();let n=0;for(const c of key)n=(n*31+c.charCodeAt(0))%99991;return n%p.length}
+function dailySave(data){try{localStorage.setItem('medterm.daily.v1',JSON.stringify(data))}catch(e){}}
+function dailyLoad(){try{return JSON.parse(localStorage.getItem('medterm.daily.v1'))||null}catch(e){return null}}
+function populate(){
+  for(const [id,vals] of [['type',[...new Set(TERMS.map(t=>t.type))].sort()],['cat',[...new Set(TERMS.map(t=>t.category))].sort((a,b)=>a.localeCompare(b,'ru'))]]){
+    for(const v of vals){const o=document.createElement('option');o.value=v;o.textContent=v.charAt(0).toUpperCase()+v.slice(1);$(id).appendChild(o)}
+  }
+}
+function newGame(){
+  G.mode=$('mode').value;G.len=$('len').value;G.type=$('type').value;G.cat=$('cat').value;G.difficulty=$('difficulty').value;
+  const p=pool();G.answer=p[G.mode==='daily'?dailyIndex(p):Math.floor(Math.random()*p.length)];
+  G.rows=[];G.over=false;G.hints=0;G.current=Array(norm(G.answer.norm).length).fill('');
+  $('modeBtn').textContent='Режим: '+MODE_NAMES[G.mode];$('hint').classList.toggle('hidden',G.mode!=='clue');
+  $('badge').textContent=norm(G.answer.norm).length+' букв';$('pool').textContent='терминов: '+p.length;$('round').textContent='Попытка 1 из '+G.max;$('msg').textContent='';
+  $('winModal').classList.add('hidden');$('again').textContent=G.mode==='daily'?'Сегодня уже сыграно':'Следующий термин';
+  renderClue();buildBoard();renderCurrent();updateProgress();
+  if(G.mode==='daily')restoreDaily();
+}
+function restoreDaily(){
+  const saved=dailyLoad();
+  if(!saved||saved.date!==todayKey())return;
+  if(saved.answer!==G.answer.word)return;
+  G.rows=Array.isArray(saved.rows)?saved.rows:[];G.over=!!saved.over;G.hints=Number(saved.hints)||0;G.current=Array(norm(G.answer.norm).length).fill('');
+  renderRows();updateProgress();
+  if(G.over){$('round').textContent='Слово дня завершено';$('msg').textContent='Сегодняшняя партия уже сыграна.';showResultModal(!!saved.ok,true)}
+  else $('round').textContent='Продолжить: попытка '+(G.rows.length+1)+' из '+G.max;
+}
+function renderClue(){
+  const b=$('clue');
+  if(G.mode==='definition'){b.classList.remove('hidden');b.innerHTML='<b>Определение:</b> '+esc(G.answer.definition)}
+  else if(G.mode==='clue'){b.classList.remove('hidden');b.innerHTML='<b>Раздел:</b> '+esc(G.answer.category)+'<br><span id="hintText">Подсказки будут открываться по мере игры.</span>'}
+  else if(G.mode==='daily'){b.classList.remove('hidden');b.innerHTML='<b>Термин дня:</b> один ответ на календарную дату.'}
+  else b.classList.add('hidden');
+}
+function scoreGuess(g,a){
+  const res=Array(g.length).fill('absent'),used=Array(a.length).fill(false);
+  for(let i=0;i<g.length;i++)if(g[i]===a[i]){res[i]='correct';used[i]=true}
+  for(let i=0;i<g.length;i++)if(res[i]!=='correct'){const j=a.split('').findIndex((x,k)=>!used[k]&&x===g[i]);if(j>=0){res[i]='present';used[j]=true}}
+  return res;
+}
+function fixedLetters(){
+  const a=norm(G.answer.norm), fixed=Array(a.length).fill('');
+  for(const row of G.rows)for(let i=0;i<row.score.length;i++)if(row.score[i]==='correct')fixed[i]=row.word[i];
+  return fixed;
+}
+function buildBoard(){
+  const b=$('board');b.innerHTML='';const l=norm(G.answer.norm).length;const fixed=fixedLetters();
+  for(let r=0;r<G.max;r++){
+    const row=document.createElement('div');row.className='row';row.dataset.row=r;
+    for(let i=0;i<l;i++){const t=document.createElement('div');t.className='tile';t.dataset.pos=i;row.appendChild(t)}
+    b.appendChild(row);
+  }
+  renderKeys();
+}
+function renderCurrent(){
+  const row=$('board').children[G.rows.length];if(!row)return;const fixed=fixedLetters();const chars=G.current;
+  for(let i=0;i<row.children.length;i++){
+    const t=row.children[i];const value=fixed[i]||chars[i]||'';t.textContent=value;t.classList.toggle('fixed',!!fixed[i]);t.classList.toggle('filled',!fixed[i]&&!!chars[i]);t.classList.toggle('active',!G.over&&!fixed[i]);
+  }
+}
+function renderRows(){
+  const board=$('board');G.rows.forEach((r,ri)=>{const row=board.children[ri];for(let i=0;i<row.children.length;i++){const t=row.children[i];t.textContent=r.word[i]||'';t.className='tile '+r.score[i]}});
+  renderCurrent();renderKeys();
+}
+function renderKeys(){
+  const box=$('keys');box.innerHTML='';const state={};
+  for(const r of G.rows)r.score.forEach((v,i)=>{const c=r.word[i];if(state[c]!=='correct'&&(state[c]!=='present'||v==='correct'))state[c]=v});
+  ALPHABET.forEach(c=>{const b=document.createElement('button');b.type='button';b.className='key '+(state[c]||'');b.textContent=c;b.addEventListener('click',()=>typeLetter(c));box.appendChild(b)});
+  const enter=document.createElement('button');enter.type='button';enter.className='key primary';enter.textContent='↵';enter.addEventListener('click',submitGuess);box.appendChild(enter);
+  const back=document.createElement('button');back.type='button';back.className='key';back.textContent='⌫';back.addEventListener('click',backspace);box.appendChild(back);
+}
+function typeLetter(c){
+  if(G.over)return;const a=norm(G.answer.norm),fixed=fixedLetters();
+  if(!Array.isArray(G.current)||G.current.length!==a.length)G.current=Array(a.length).fill('');
+  for(let i=0;i<a.length;i++)if(!fixed[i]&&!G.current[i]){G.current[i]=c;break}
+  renderCurrent();
+}
+function backspace(){
+  if(G.over)return;const a=norm(G.answer.norm),fixed=fixedLetters();
+  if(!Array.isArray(G.current)||G.current.length!==a.length)G.current=Array(a.length).fill('');
+  for(let i=a.length-1;i>=0;i--)if(!fixed[i]&&G.current[i]){G.current[i]='';break}
+  renderCurrent();
+}
+function currentWord(){
+  const a=norm(G.answer.norm),fixed=fixedLetters();
+  if(!Array.isArray(G.current)||G.current.length!==a.length)G.current=Array(a.length).fill('');
+  return a.split('').map((_,i)=>fixed[i]||G.current[i]||'').join('');
+}
+function submitGuess(){
+  if(G.over)return;
+  const a=norm(G.answer.norm),g=currentWord();
+  if(g.length!==a.length || g.split('').some(ch => !ch)){$('msg').textContent='Заполни все кубики перед проверкой.';return}
+  const score=scoreGuess(g,a);G.rows.push({word:g,score});G.current=Array(a.length).fill('');renderRows();updateProgress();
+  if(g===a){finish(true);return}
+  if(G.rows.length>=G.max){finish(false);return}
+  if(G.mode==='daily')dailySave({date:todayKey(),answer:G.answer.word,rows:G.rows,over:false,ok:false,hints:G.hints});
+  $('round').textContent='Попытка '+(G.rows.length+1)+' из '+G.max;
+  if(G.mode==='clue')updateClue();
+}
+function updateClue(){const n=G.hints+G.rows.length;const text=n>=4?G.answer.definition:n>=2?'Начинается с буквы «'+G.answer.word[0]+'».':'Раздел — '+G.answer.category;const h=$('hintText');if(h)h.textContent=text}
+function giveHint(){if(G.over)return;if(G.mode!=='clue')return;if(G.hints>=3){$('msg').textContent='Все доступные подсказки уже открыты.';return}G.hints++;const text=G.hints===1?'Раздел — '+G.answer.category:G.hints===2?'Первая буква — «'+G.answer.word[0]+'»':'Определение — '+G.answer.definition;const h=$('hintText');if(h)h.textContent=text}
+function updateProgress(){$('progress').style.width=(G.rows.length/G.max*100)+'%'}
+function showResultModal(ok,restored=false){
+  $('answer').textContent=G.answer.word;$('def').textContent=G.answer.definition;$('meta').textContent=G.answer.category+' · '+G.answer.type+' · '+G.answer.difficulty;
+  $('winTitle').textContent=ok?'Победа!':'Игра окончена';
+  $('again').textContent=G.mode==='daily'?'До завтра':'Следующий термин';
+  $('winModal').classList.remove('hidden');
+  if(ok&&!restored)launchConfetti();
+}
+function launchConfetti(){const c=$('confetti');c.innerHTML='';for(let i=0;i<24;i++){const el=document.createElement('i');el.style.left=(Math.random()*100)+'%';el.style.animationDelay=(Math.random()*.35)+'s';c.appendChild(el)}setTimeout(()=>c.innerHTML='',1800)}
+function finish(ok){
+  if(G.over)return;
+  G.over=true;const s=stats();s.played++;if(ok){s.wins++;s.streak++;s.best=Math.max(s.best,s.streak)}else s.streak=0;s.history.unshift({word:G.answer.word,ok,guesses:G.rows.length});s.history=s.history.slice(0,50);saveStats(s);
+  $('played').textContent=s.played;$('wins').textContent=s.wins;$('streak').textContent=s.streak;$('best').textContent=s.best;
+  if(G.mode==='daily')dailySave({date:todayKey(),answer:G.answer.word,rows:G.rows,over:true,ok,hints:G.hints});
+  showResultModal(ok,false);
+}
+function updateStats(){const s=stats();['played','wins','streak','best'].forEach(k=>$(k).textContent=s[k]);$('history').innerHTML=(s.history||[]).slice(0,50).map(x=>'<div><b>'+esc(x.word)+'</b><span>'+(x.ok?'✓ '+x.guesses+' попыт.':'× не разгадано')+'</span></div>').join('')||'<div style="color:#9eabc3">Пока пусто</div>'}
+function clearCurrent(){if(G.over)return;G.current=Array(norm(G.answer.norm).length).fill('');renderCurrent();$('msg').textContent=''}
+
+// Единственный обработчик физической клавиатуры.
+document.addEventListener('keydown',function(e){
+  if(G.over)return;
+  if(e.key==='Enter'){e.preventDefault();e.stopImmediatePropagation();submitGuess();return}
+  if(e.key==='Backspace'){e.preventDefault();e.stopImmediatePropagation();backspace();return}
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
+  const c=norm(e.key);if(c.length===1&&ALPHABET.includes(c)){e.preventDefault();typeLetter(c)}
+},true);
+
+$('again').onclick=()=>{if(G.mode==='daily'){ $('winModal').classList.add('hidden'); return; } newGame()};$('hint').onclick=giveHint;$('clear').onclick=clearCurrent;
+$('modeBtn').onclick=()=>$('modeModal').classList.remove('hidden');$('closeMode').onclick=()=>$('modeModal').classList.add('hidden');$('modeModal').onclick=e=>{if(e.target===$('modeModal'))$('modeModal').classList.add('hidden')};document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{$('mode').value=b.dataset.mode;$('modeModal').classList.add('hidden');newGame()});
+$('settingsBtn').onclick=()=>$('settingsModal').classList.remove('hidden');$('closeSettings').onclick=()=>$('settingsModal').classList.add('hidden');$('applySettings').onclick=()=>{if(G.mode==='daily'){$('msg').textContent='Для «Слова дня» фильтры не меняют ежедневный термин.';$('settingsModal').classList.add('hidden');return}$('settingsModal').classList.add('hidden');newGame()};$('settingsModal').onclick=e=>{if(e.target===$('settingsModal'))$('settingsModal').classList.add('hidden')};
+$('statsBtn').onclick=()=>{$('statsModal').classList.remove('hidden');updateStats()};$('closeStats').onclick=()=>$('statsModal').classList.add('hidden');$('statsModal').onclick=e=>{if(e.target===$('statsModal'))$('statsModal').classList.add('hidden')};
+$('helpBtn').onclick=()=>$('helpModal').classList.remove('hidden');$('closeHelp').onclick=()=>$('helpModal').classList.add('hidden');$('helpModal').onclick=e=>{if(e.target===$('helpModal'))$('helpModal').classList.add('hidden')};
+try{populate();updateStats();newGame()}catch(err){console.error(err);$('msg').textContent='Ошибка запуска игры: '+err.message}
+</script>
+</body>
+</html>
