@@ -11,11 +11,12 @@
 :root{--bg:#07101d;--panel:#101a2b;--panel2:#17243a;--line:#2b3b57;--text:#eef4ff;--muted:#9eabc2;--blue:#3a7bea;--green:#1f9b6b;--green2:#42d99d;--yellow:#8b7224;--gray:#354055;--danger:#b65353;--tile:48px;--gap:6px}
 *{box-sizing:border-box}html,body{min-height:100%;margin:0}body{background:radial-gradient(circle at 50% 0,#1b3158,#08101d 48%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.app{max-width:1000px;margin:auto;padding:20px 16px 40px}
 header{display:flex;justify-content:space-between;gap:14px;align-items:center}.brand h1{margin:0;font-size:28px}.brand p{margin:4px 0;color:var(--muted)}button,select{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}button{cursor:pointer}button:hover{filter:brightness(1.12)}.primary{background:var(--blue);border-color:#4c89ef}.ghost{background:transparent}.top-actions{display:flex;gap:8px;align-items:center}.icon-btn{width:44px;height:44px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:12px}.icon-btn svg{width:22px;height:22px;display:block}.icon-btn:focus-visible{outline:2px solid #6e9cf0;outline-offset:2px}.icon-btn[title]{position:relative}.mobile-mode-tools{display:contents}
-.card{background:#101a2bf2;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 35px #0003;margin-top:16px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.control{min-width:0}.control select{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.control label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.control select{width:100%}
-.status{display:flex;justify-content:space-between;gap:10px;margin:15px 0 8px;color:var(--muted);align-items:center}.badges{display:flex;gap:7px;flex-wrap:wrap}.badge{background:var(--panel2);padding:5px 9px;border-radius:999px;color:#d3def2;font-size:12px}.clue{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px;line-height:1.45;margin-bottom:10px}.hidden{display:none!important}.key-capture{position:fixed;left:-10000px;top:-10000px;width:1px;height:1px;opacity:0;border:0;padding:0}
-.game-stage{width:100%;display:block}.board-wrap{width:100%;display:block;overflow-x:auto;overflow-y:hidden;padding:10px 2px 14px;scrollbar-width:thin;overscroll-behavior-x:contain}.board-wrap::-webkit-scrollbar{height:8px}.board{display:flex;flex-direction:column;gap:var(--gap);width:max-content;min-width:max-content;margin:0 auto;visibility:visible}.row{display:flex;flex-direction:row;gap:var(--gap);width:max-content;min-height:var(--tile)}.tile{flex:0 0 var(--tile);width:var(--tile);min-width:var(--tile);height:var(--tile);border:2px solid #35445f;background:#0b1525;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:850;text-transform:uppercase;transition:transform .12s,background .18s,border-color .18s,box-shadow .18s}.tile.filled{border-color:#627492}.tile.fixed{background:var(--green);border-color:var(--green2);color:white;box-shadow:0 0 0 1px #ffffff12 inset}.tile.correct{background:var(--green);border-color:var(--green2)}.tile.present{background:var(--yellow);border-color:#b89a37}.tile.absent{background:var(--gray);border-color:var(--gray)}.tile.active{border-color:#6e9cf0;box-shadow:0 0 0 2px #3a7bea22}.tile.pop{animation:pop .12s ease-out}@keyframes pop{50%{transform:scale(1.06)}}
+.card{position:relative;overflow:hidden;background:#101a2bf2;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 35px #0003;margin-top:16px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.control{min-width:0}.control select{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.control label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.control select{width:100%}
+.status{display:flex;justify-content:space-between;gap:10px;margin:15px 0 8px;color:var(--muted);align-items:center}.badges{display:flex;gap:7px;flex-wrap:wrap}.badge{background:var(--panel2);padding:5px 9px;border-radius:999px;color:#d3def2;font-size:12px}.clue{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px;line-height:1.45;margin-bottom:10px;position:relative}.clue-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:5px}.info-btn{width:28px;height:28px;padding:0;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#13243a;border:1px solid #3a5274;color:#bcd0ef;font-weight:900;position:relative}.info-btn:hover::after,.info-btn:focus-visible::after{content:attr(data-tip);position:absolute;right:0;top:calc(100% + 8px);z-index:20;width:230px;padding:8px 10px;border-radius:9px;background:#08111e;border:1px solid #334866;box-shadow:0 12px 28px #0008;color:#dbe6f7;font-size:11px;line-height:1.35;font-weight:500;text-align:left}.clue-definition{color:#d7e1f0}.clue-context{color:#9fb1ca;font-size:12px;margin-top:5px}.hidden{display:none!important}.key-capture{position:fixed;left:-10000px;top:-10000px;width:1px;height:1px;opacity:0;border:0;padding:0}
+.daily-panel{display:none!important;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px;padding:11px 13px;border:1px solid #29466a;border-radius:15px;background:linear-gradient(105deg,rgba(22,43,70,.92),rgba(12,26,43,.86));box-shadow:inset 0 1px rgba(255,255,255,.035),0 7px 20px rgba(0,0,0,.12)}.daily-panel.visible{display:flex}.daily-panel.done{border-color:#2f8066;background:linear-gradient(105deg,rgba(18,57,50,.9),rgba(12,30,39,.88))}.daily-left{display:flex;align-items:center;gap:10px;min-width:0}.daily-icon{width:34px;height:34px;flex:0 0 34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#183252;border:1px solid #35619a;color:#77a9ff}.daily-panel.done .daily-icon{background:#173d35;border-color:#34876c;color:#61ddb0}.daily-icon svg{width:18px;height:18px}.daily-copy{min-width:0}.daily-copy b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#dce8fb}.daily-copy span{display:block;margin-top:2px;font-size:12px;color:#91a6c2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.daily-count{text-align:right;flex:0 0 auto}.daily-count b{display:block;font-size:15px;color:#f5f8ff}.daily-count span{display:block;font-size:10px;color:#7188a7;text-transform:uppercase;letter-spacing:.08em}.daily-streak{display:inline-flex;align-items:center;gap:5px;margin-left:7px;padding:4px 7px;border-radius:999px;background:#13243a;border:1px solid #2b4668;color:#a9c7ef;font-size:11px}.daily-panel.done .daily-streak{background:#15382f;border-color:#2b6f5a;color:#8de1bf}@media(max-width:650px){.daily-panel{padding:10px 11px}.daily-icon{width:31px;height:31px;flex-basis:31px}.daily-copy span{max-width:205px}.daily-count b{font-size:14px}}.game-stage{width:100%;display:block}.board-wrap{width:100%;display:block;overflow-x:auto;overflow-y:hidden;padding:10px 2px 14px;scrollbar-width:thin;overscroll-behavior-x:contain}.board-wrap::-webkit-scrollbar{height:8px}.board{display:flex;flex-direction:column;gap:var(--gap);width:max-content;min-width:max-content;margin:0 auto;visibility:visible}.row{display:flex;flex-direction:row;gap:var(--gap);width:max-content;min-height:var(--tile);padding:3px 5px;border-radius:14px;border:1px solid transparent;transition:background .2s ease,border-color .2s ease,box-shadow .2s ease}.row.current-row{background:rgba(50,91,145,.075);border-color:rgba(74,126,194,.12);box-shadow:0 0 28px rgba(53,111,190,.055),inset 0 1px rgba(255,255,255,.018)}.tile{flex:0 0 var(--tile);width:var(--tile);min-width:var(--tile);height:var(--tile);border:2px solid #35445f;background:#0b1525;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:850;text-transform:uppercase;transition:transform .12s,background .18s,border-color .18s,box-shadow .18s}.tile.filled{border-color:#627492}.tile.fixed{background:var(--green);border-color:var(--green2);color:white;box-shadow:0 0 0 1px #ffffff12 inset}.tile.correct{background:var(--green);border-color:var(--green2)}.tile.present{background:var(--yellow);border-color:#b89a37}.tile.absent{background:var(--gray);border-color:var(--gray)}.tile.active{border-color:#6e9cf0;box-shadow:0 0 0 2px #3a7bea22}.tile.pop{animation:pop .12s ease-out}@keyframes pop{50%{transform:scale(1.06)}}
 .progress{height:6px;background:#26344c;border-radius:99px;overflow:hidden;margin:2px auto 12px;max-width:760px}.progress i{display:block;height:100%;background:var(--blue);width:0;transition:width .2s}.message{text-align:center;min-height:28px;color:#c0cce0;padding-top:4px;font-weight:650}.keyboard{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:760px;margin:10px auto 0}.key{min-width:32px;height:40px;padding:0 7px;border-radius:7px;font-weight:750}.key.correct{background:var(--green);border-color:var(--green)}.key.present{background:var(--yellow);border-color:var(--yellow)}.key.absent{background:var(--gray);border-color:var(--gray)}.actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:9px}
 .note{color:var(--muted);font-size:12px;line-height:1.5;margin-top:16px;text-align:center}.modal-backdrop{position:fixed;inset:0;background:#030813cc;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}.modal{width:min(520px,100%);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 30px 80px #0008}.modal h2{margin:0 0 14px}.mode-list{display:grid;gap:10px}.mode-list button{width:100%;text-align:left;padding:14px;display:flex;align-items:center;gap:12px}.mode-list button span:last-child{display:flex;flex-direction:column;gap:2px}.mode-list button small{color:var(--muted);font-size:12px;font-weight:500}.mode-icon{width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 30px;border-radius:9px;background:#172842;border:1px solid #2b3f5f}.mode-icon svg{width:19px;height:19px}.settings-actions{display:flex;justify-content:flex-end;margin-top:14px}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.close{width:40px;height:40px;padding:0}.stats-title{display:flex;align-items:center;gap:9px}.stats-title-icon{width:34px;height:34px;border-radius:10px;background:#172842;border:1px solid #3b7de8;display:inline-flex;align-items:center;justify-content:center;color:#6ea0ff}.stats-title-icon svg{width:19px;height:19px}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.stat{background:linear-gradient(145deg,#172842,#101b2d);border:1px solid #2b3f5f;padding:13px 9px;border-radius:15px;text-align:center;box-shadow:inset 0 1px #ffffff08}.stat b{font-size:25px;line-height:1.1;display:block}.stat span{font-size:11px;color:var(--muted)}.stat.accent{border-color:#3b7de8}.stat.success{border-color:#2b9b71}.stat.gold{border-color:#8b7224}.stats-summary{display:flex;justify-content:space-between;gap:10px;margin:14px 0 8px;padding:11px 13px;background:#0b1525;border:1px solid var(--line);border-radius:13px;color:#cbd7eb;font-size:13px}.stats-summary b{color:#fff}.history{max-height:260px;overflow:auto;margin-top:8px}.history div{border-bottom:1px solid var(--line);padding:10px 4px;font-size:13px;display:flex;justify-content:space-between;gap:8px}.history .win{color:#54dda5}.history .loss{color:#9eabc2}.history-empty{text-align:center;padding:20px 8px;color:var(--muted)}.settings-intro,.help-intro{color:#aebbd0;font-size:13px;line-height:1.5;margin:-4px 0 14px}.settings-section{background:#0b1525;border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:10px}.settings-section h3{margin:0 0 9px;font-size:14px}.help-steps{display:grid;gap:9px}.help-step{display:flex;gap:10px;align-items:flex-start;background:#0b1525;border:1px solid var(--line);border-radius:13px;padding:11px}.help-num{flex:0 0 28px;height:28px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900}.help-step b{display:block;margin-bottom:2px}.legend{display:grid;gap:7px;margin-top:12px}.legend-item{display:flex;align-items:center;gap:9px;font-size:13px;color:#cbd7eb}.legend-tile{width:25px;height:25px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-weight:900}.legend-tile.correct{background:var(--green)}.legend-tile.present{background:var(--yellow)}.legend-tile.absent{background:var(--gray)}.win-modal .modal{text-align:center;border-color:#2b9b71}.victory-icon{font-size:52px;animation:bounce .7s ease}@keyframes bounce{50%{transform:translateY(-8px)}}.win-title{font-size:30px;font-weight:950;margin:4px 0}.win-answer{font-size:27px;font-weight:900;margin:8px}.win-definition{color:#cbd5e8;line-height:1.5}.win-meta{color:var(--muted);font-size:13px;margin:8px 0 16px}.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;top:-20px;width:8px;height:16px;background:#fff;animation:fall 1.5s linear forwards;opacity:.9}.confetti i:nth-child(3n){background:#3a7bea}.confetti i:nth-child(3n+1){background:#42d99d}.confetti i:nth-child(4n){background:#f2c84b}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.stats-modal{width:min(560px,100%);background:linear-gradient(165deg,#121f33,#0c1626);border-color:#304765}.stats-modal .stats-grid{margin-top:4px}.stats-modal .stat{position:relative;overflow:hidden}.stats-modal .stat:after{content:"";position:absolute;left:14%;right:14%;top:0;height:1px;background:linear-gradient(90deg,transparent,#75a9ff,transparent);opacity:.4}.stats-caption{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#72839e;margin:16px 0 6px}.history div{border:1px solid #253650;border-radius:11px;margin:6px 0;padding:10px 11px;background:linear-gradient(145deg,#111e31,#0c1727);transition:transform .15s ease,border-color .15s ease}.history div:hover{transform:translateY(-1px);border-color:#385577}.history div b{font-size:13px}.history div span{color:#9eabc2}.result-modal{position:relative;overflow:hidden;text-align:center;border-color:#2f755e!important;background:radial-gradient(circle at 50% 0,rgba(66,217,157,.09),transparent 42%),linear-gradient(165deg,#132436,#0c1726)}.result-modal:before{content:"";position:absolute;left:15%;right:15%;top:0;height:1px;background:linear-gradient(90deg,transparent,#62e1b4,transparent);opacity:.8}.result-orb{width:68px;height:68px;margin:2px auto 10px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:950;background:radial-gradient(circle at 35% 30%,#62e7b8,#19825f 70%);border:1px solid #63e1b5;box-shadow:0 0 35px rgba(66,217,157,.2),inset 0 2px rgba(255,255,255,.2);animation:resultOrbIn .5s cubic-bezier(.2,.8,.25,1)}.result-kicker{font-size:10px;font-weight:850;letter-spacing:.18em;color:#62dcae}.result-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:15px 0}.result-metrics>div{padding:9px 5px;border:1px solid #2a405d;background:#0b1727;border-radius:12px}.result-metrics b{display:block;font-size:21px;line-height:1.1}.result-metrics span{font-size:10px;color:#8999b2}.result-action{min-width:190px}.tomorrow-countdown{margin:14px 0 16px;padding:11px 14px;border:1px solid #315176;border-radius:13px;background:linear-gradient(145deg,#0d1b2d,#0a1422);box-shadow:inset 0 1px #ffffff08}.tomorrow-countdown span{display:block;color:#8195b1;font-size:10px;text-transform:uppercase;letter-spacing:.12em}.tomorrow-countdown strong{display:block;margin-top:3px;font-size:22px;letter-spacing:.02em;color:#fff}.result-modal.daily-wait{border-color:#315b84!important}.result-modal.daily-wait .result-orb{background:radial-gradient(circle at 35% 30%,#76aaf5,#315b93 70%)!important;border-color:#78aaf1!important}.result-modal.daily-wait .result-kicker{color:#78aaf1}@keyframes resultOrbIn{0%{opacity:0;transform:scale(.7) translateY(6px)}65%{transform:scale(1.06)}100%{opacity:1;transform:none}}
 @media(max-width:900px){.controls{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:650px){
   :root{--tile:38px;--gap:4px}
@@ -23,7 +24,7 @@ header{display:flex;justify-content:space-between;gap:14px;align-items:center}.b
   body{min-height:100dvh;-webkit-tap-highlight-color:transparent}
   .app{width:100%;padding:calc(8px + env(safe-area-inset-top)) 8px calc(18px + env(safe-area-inset-bottom))}
   header{display:flex;flex-direction:column;align-items:stretch;gap:8px;position:relative}
-  .brand{text-align:center;padding:0 54px}
+  .brand{width:100%;text-align:center;padding:0 50px;display:flex;flex-direction:column;align-items:center}
   .brand h1{font-size:22px;line-height:1.15}
   .brand p{font-size:12px;margin:3px 0 0}
   .top-actions{display:flex;justify-content:space-between;align-items:center;gap:6px;width:100%;height:42px;position:absolute;left:0;right:0;top:0;z-index:8;pointer-events:none}
@@ -67,6 +68,7 @@ header{display:flex;justify-content:space-between;gap:14px;align-items:center}.b
   .win-answer{font-size:23px}
   button,select{font-size:16px}
 }
+@media(max-width:650px){.stats-modal{padding:14px}.result-modal{padding:18px 14px}.result-orb{width:60px;height:60px;font-size:27px}.result-metrics{gap:5px}.result-metrics b{font-size:19px}.result-action{width:100%}.history{max-height:230px}}
 @media(max-width:360px){
   :root{--tile:34px;--gap:3px}
   .top-actions button{font-size:11px}
@@ -82,12 +84,215 @@ header{display:flex;justify-content:space-between;gap:14px;align-items:center}.b
   .tile{height:34px;min-height:34px;width:34px;min-width:34px}
   :root{--tile:34px;--gap:3px}
 }
+
+/* MEDTERM VISUAL REFRESH v1 */
+:root{
+  --bg:#050b14;--panel:#0d1726;--panel2:#132238;--line:#263852;--text:#f3f7ff;--muted:#93a4bc;
+  --blue:#4b8dff;--blue-soft:#79adff;--green:#168b68;--green2:#55e2b0;--yellow:#9b7a20;--gray:#303c50;
+  --tile:50px;--gap:7px;
+}
+html{background:#050b14}
+body{
+  background:
+    radial-gradient(900px 480px at 50% -120px,rgba(65,125,230,.20),transparent 68%),
+    radial-gradient(650px 420px at 100% 40%,rgba(31,155,107,.07),transparent 70%),
+    linear-gradient(180deg,#07101c 0%,#050b14 100%);
+  letter-spacing:.005em;
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(125,165,220,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(125,165,220,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,#000,transparent 78%);}
+.app{max-width:1040px;padding-top:26px}
+header{padding:2px 2px 4px}
+.brand h1{font-size:30px;letter-spacing:-.035em;font-weight:850;text-shadow:0 0 28px rgba(75,141,255,.15)}
+.brand h1:first-letter{filter:saturate(.8)}
+.brand p{font-size:13px;color:#8194ae}
+.top-actions{gap:9px}
+.icon-btn{width:46px;height:46px;border-radius:14px;background:rgba(13,23,38,.72);border-color:#2a3e5b;box-shadow:0 7px 22px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.045);transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
+.icon-btn:hover{filter:none;transform:translateY(-1px);background:#122138;border-color:#42658f;box-shadow:0 10px 26px rgba(0,0,0,.24),0 0 0 1px rgba(75,141,255,.08) inset}
+.icon-btn:active{transform:translateY(1px) scale(.97)}
+.card{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(14,25,42,.94),rgba(9,18,31,.96));border-color:#263a57;border-radius:24px;padding:22px;box-shadow:0 24px 70px rgba(0,0,0,.30),inset 0 1px rgba(255,255,255,.035);margin-top:18px}.card:before{content:"";position:absolute;inset:0 18% auto -8%;height:1px;background:linear-gradient(90deg,transparent,rgba(109,166,255,.45),transparent);opacity:.7;pointer-events:none}
+.status{margin:12px 2px 10px}
+.badge{background:rgba(19,34,56,.82);border:1px solid #253b59;color:#b9c8dc;padding:6px 10px;box-shadow:inset 0 1px rgba(255,255,255,.035)}
+.board-wrap{padding:16px 2px 18px;scrollbar-color:#324968 transparent}
+.board-wrap::-webkit-scrollbar{height:7px}.board-wrap::-webkit-scrollbar-thumb{background:#314968;border-radius:99px}
+.board{filter:drop-shadow(0 14px 22px rgba(0,0,0,.13))}
+.tile{
+  height:var(--tile);border-radius:11px;border:1.5px solid #344966;background:linear-gradient(145deg,#0d1a2c,#091321);
+  font-size:21px;letter-spacing:.02em;box-shadow:inset 0 1px rgba(255,255,255,.035),0 4px 12px rgba(0,0,0,.16);
+  transition:transform .14s cubic-bezier(.22,1,.36,1),background .24s ease,border-color .24s ease,box-shadow .24s ease;
+}
+.tile.filled{border-color:#617692;background:linear-gradient(145deg,#122239,#0c1728);box-shadow:inset 0 1px rgba(255,255,255,.05),0 5px 14px rgba(0,0,0,.18)}
+.tile.fixed,.tile.correct{background:linear-gradient(145deg,#1b9b76,#11765a);border-color:#55dfb0;box-shadow:0 0 20px rgba(42,203,151,.14),inset 0 1px rgba(255,255,255,.16)}
+.tile.present{background:linear-gradient(145deg,#a17e22,#765b18);border-color:#d2ad48;box-shadow:0 0 18px rgba(205,164,54,.10),inset 0 1px rgba(255,255,255,.12)}
+.tile.absent{background:linear-gradient(145deg,#354257,#293447);border-color:#46556c;color:#c4cedc;box-shadow:inset 0 1px rgba(255,255,255,.035)}
+.tile.active{border-color:#75aaff;box-shadow:0 0 0 2px rgba(75,141,255,.18),0 0 22px rgba(75,141,255,.10),inset 0 1px rgba(255,255,255,.06);animation:activePulse 1.8s ease-in-out infinite}.tile.fixed{box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 14px rgba(42,203,151,.10)}
+.tile.pop{animation:medPop .18s cubic-bezier(.22,1,.36,1)}
+.tile.reveal{animation:tileReveal .48s cubic-bezier(.2,.75,.25,1) both;transform-style:preserve-3d}
+.tile.reveal.correct,.tile.reveal.present,.tile.reveal.absent{will-change:transform,filter}
+@keyframes tileReveal{0%{transform:perspective(500px) rotateX(0deg) scale(1);filter:brightness(1)}45%{transform:perspective(500px) rotateX(90deg) scale(.94);filter:brightness(.75)}55%{transform:perspective(500px) rotateX(-82deg) scale(.94);filter:brightness(.9)}100%{transform:perspective(500px) rotateX(0deg) scale(1);filter:brightness(1)}}
+.board.is-revealing{pointer-events:none}
+@keyframes medPop{0%{transform:scale(.91)}70%{transform:scale(1.055)}100%{transform:scale(1)}}@keyframes activePulse{0%,100%{box-shadow:0 0 0 2px rgba(75,141,255,.14),0 0 15px rgba(75,141,255,.06),inset 0 1px rgba(255,255,255,.06)}50%{box-shadow:0 0 0 2px rgba(75,141,255,.24),0 0 24px rgba(75,141,255,.13),inset 0 1px rgba(255,255,255,.06)}}
+.progress{height:7px;background:#111f33;border:1px solid #20344f;box-shadow:inset 0 1px rgba(0,0,0,.25),0 3px 12px rgba(0,0,0,.12);padding:1px}.progress i{border-radius:99px}
+.progress i{background:linear-gradient(90deg,#3d7ff1,#6ba4ff);box-shadow:0 0 10px rgba(75,141,255,.32)}
+.message{color:#b7c7dc;font-size:14px}
+.keyboard{gap:6px;margin-top:12px}
+.key{height:42px;border-radius:9px;background:linear-gradient(145deg,#14243a,#0e1a2b);border-color:#2b405d;box-shadow:0 4px 12px rgba(0,0,0,.14),inset 0 1px rgba(255,255,255,.035);transition:transform .12s ease,background .18s ease,border-color .18s ease}
+.key:hover{filter:none;transform:translateY(-1px);border-color:#48688f}
+.key:active{transform:translateY(1px) scale(.97)}
+.key.correct{background:linear-gradient(145deg,#1b9b76,#11765a);border-color:#3fc99b;box-shadow:0 5px 16px rgba(31,181,139,.16),inset 0 1px rgba(255,255,255,.08)}.key.present{background:linear-gradient(145deg,#9b7a20,#725716);border-color:#bd9840;box-shadow:0 5px 16px rgba(189,152,64,.13),inset 0 1px rgba(255,255,255,.07)}.key.absent{background:linear-gradient(145deg,#354257,#293447);border-color:#46556c;opacity:.72}.key.key-reveal{animation:keyReveal .34s cubic-bezier(.2,.8,.25,1)}.key.key-press{animation:keyPress .18s cubic-bezier(.2,.8,.25,1)}@keyframes keyPress{0%{transform:translateY(0) scale(1)}55%{transform:translateY(-2px) scale(1.045)}100%{transform:translateY(0) scale(1)}}@keyframes keyReveal{0%{transform:translateY(2px) scale(.94);filter:brightness(1.35)}55%{transform:translateY(-2px) scale(1.06);filter:brightness(1.12)}100%{transform:translateY(0) scale(1);filter:brightness(1)}}
+.note{color:#7488a3}
+.modal-backdrop{background:rgba(2,7,14,.72);backdrop-filter:blur(10px)}
+.modal{background:linear-gradient(145deg,#101d30,#0b1524);border-color:#2a405e;border-radius:22px;box-shadow:0 35px 100px rgba(0,0,0,.52),inset 0 1px rgba(255,255,255,.045)}
+.stats-title-icon{background:#12243b;border-color:#3e78c8;box-shadow:0 0 20px rgba(75,141,255,.09)}
+.stat{background:linear-gradient(145deg,#14243a,#0d1829);border-color:#2a405e}
+@media(max-width:650px){
+  .app{padding-top:calc(8px + env(safe-area-inset-top))}
+  .brand h1{font-size:22px}.brand p{font-size:12px}
+  .card{border-radius:18px}
+  .tile{border-radius:8px;font-size:16px}
+  .keyboard{gap:4px}
+}
+
+/* Visual v5 — game-state polish */
+.status{position:relative;padding:2px 0 10px;margin:4px 0 9px}.status:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#2c4362 18%,#2c4362 82%,transparent);opacity:.65}.status>span:first-child{font-weight:800;color:#e4edfb;letter-spacing:.01em}.badge{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.badge:first-child{border-color:#2d4f78}.badge:last-child{border-color:#2d405c}.card:before{content:"";position:absolute;left:12%;right:12%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(103,166,255,.55),transparent);opacity:.8}.game-stage{position:relative}.game-stage:before{content:"";position:absolute;left:8%;right:8%;top:4px;height:70%;background:radial-gradient(ellipse,rgba(58,123,234,.075),transparent 70%);pointer-events:none}.row.current-row{transform:translateX(0);background:linear-gradient(90deg,rgba(52,100,160,.08),rgba(52,100,160,.035),rgba(52,100,160,.08));border-color:rgba(87,143,211,.22);box-shadow:0 0 30px rgba(53,111,190,.07),inset 0 1px rgba(255,255,255,.025)}.row.current-row .tile:not(.fixed){background:linear-gradient(145deg,#0f1e32,#0a1524)}.tile.active{position:relative}.tile.active:after{content:"";position:absolute;inset:4px;border-radius:7px;border:1px solid rgba(123,173,255,.14);animation:activeRing 1.8s ease-in-out infinite}.tile.fixed{font-weight:900}.board.row-success{}.card.game-win{border-color:#286f59;box-shadow:0 18px 55px rgba(0,0,0,.34),0 0 35px rgba(42,203,151,.08),inset 0 1px rgba(255,255,255,.05)}.card.game-loss{border-color:#4b4050;box-shadow:0 18px 55px rgba(0,0,0,.34),0 0 28px rgba(182,83,83,.055),inset 0 1px rgba(255,255,255,.04)}.card.game-win .progress i{background:linear-gradient(90deg,#2ebd8a,#66e5b8);box-shadow:0 0 13px rgba(66,217,157,.35)}.card.game-loss .progress i{background:linear-gradient(90deg,#68758c,#a15e67);box-shadow:0 0 10px rgba(182,83,83,.2)}.message{transition:color .2s ease,transform .2s ease}.message.state-win{color:#67e3b1}.message.state-loss{color:#c7b8c0}.row.last-result{animation:resultRow .42s ease-out}.row.last-result .tile{animation:resultTile .34s ease-out both}.row.last-result .tile:nth-child(2){animation-delay:.025s}.row.last-result .tile:nth-child(3){animation-delay:.05s}.row.last-result .tile:nth-child(4){animation-delay:.075s}.row.last-result .tile:nth-child(5){animation-delay:.1s}.row.last-result .tile:nth-child(6){animation-delay:.125s}.row.last-result .tile:nth-child(7){animation-delay:.15s}.row.last-result .tile:nth-child(8){animation-delay:.175s}.row.last-result .tile:nth-child(9){animation-delay:.2s}.row.last-result .tile:nth-child(10){animation-delay:.225s}@keyframes activeRing{50%{opacity:.45;transform:scale(.96)}}@keyframes resultRow{50%{transform:translateY(-2px)}}@keyframes resultTile{50%{filter:brightness(1.12);transform:translateY(-1px)}}
+@media(max-width:650px){.status{padding-bottom:9px}.status>span:first-child{font-size:13px}.badge{padding:5px 8px}.game-stage:before{left:0;right:0}.card.game-win,.card.game-loss{box-shadow:0 14px 40px rgba(0,0,0,.35),0 0 24px rgba(42,203,151,.06)}}
+
+.row.entering-row{animation:rowEnter .38s cubic-bezier(.2,.8,.25,1) both}.row.current-row .tile.active{animation:activePulse 1.8s ease-in-out infinite,focusLift .32s ease-out}.tile.just-filled{animation:medPop .18s cubic-bezier(.2,.8,.25,1)}.row.reveal-complete{animation:revealComplete .28s ease-out}.game-stage.cycle-pulse:after{content:"";position:absolute;left:18%;right:18%;top:20%;height:55%;border-radius:50%;background:radial-gradient(ellipse,rgba(82,146,255,.06),transparent 68%);pointer-events:none;animation:cyclePulse .55s ease-out forwards}.progress.bump{animation:progressBump .34s ease-out}@keyframes rowEnter{0%{opacity:.35;transform:translateY(8px) scale(.985)}100%{opacity:1;transform:none}}@keyframes focusLift{50%{transform:scale(1.035)}}@keyframes revealComplete{50%{transform:translateY(-2px)}}@keyframes cyclePulse{0%{opacity:0;transform:scale(.82)}45%{opacity:1}100%{opacity:0;transform:scale(1.08)}}@keyframes progressBump{50%{transform:scaleY(1.35);filter:brightness(1.25)}}
+/* Visual v8 — MedTerm identity + HUD polish */
+.brand{position:relative;padding:7px 0 7px 2px}
+.brand:after{content:"МЕДИЦИНСКАЯ ИГРА · ТРЕНИРОВКА ТЕРМИНОЛОГИИ";display:block;margin-top:8px;color:#5f7695;font-size:9px;font-weight:800;letter-spacing:.16em;opacity:.78}
+.brand h1{display:flex;align-items:center;gap:8px}
+.brand h1::first-letter{font-size:.92em}
+.top-actions{padding:4px;border:1px solid rgba(48,71,103,.72);border-radius:17px;background:rgba(7,15,27,.42);box-shadow:0 10px 28px rgba(0,0,0,.14),inset 0 1px rgba(255,255,255,.035)}
+.status{padding:6px 7px 11px;margin:5px 1px 10px}
+.status>span:first-child{display:inline-flex;align-items:center;min-height:30px;padding:0 11px;border:1px solid #294464;border-radius:10px;background:linear-gradient(145deg,rgba(20,38,62,.9),rgba(12,24,40,.86));box-shadow:inset 0 1px rgba(255,255,255,.04),0 5px 15px rgba(0,0,0,.12);font-size:12px;letter-spacing:.015em}
+.status>span:first-child:before{content:"";width:6px;height:6px;margin-right:7px;border-radius:50%;background:#65a3ff;box-shadow:0 0 9px rgba(101,163,255,.65)}
+.badges{align-items:center}
+.badge{min-height:30px;display:inline-flex;align-items:center;padding:0 10px;border-radius:10px;background:linear-gradient(145deg,rgba(19,35,57,.92),rgba(12,24,40,.86));box-shadow:inset 0 1px rgba(255,255,255,.035),0 4px 12px rgba(0,0,0,.1);font-weight:700}
+.progress{height:8px;max-width:none;margin:0 3px 13px;background:repeating-linear-gradient(90deg,#101d30 0,#101d30 calc(16.666% - 2px),#263954 calc(16.666% - 2px),#263954 16.666%);border-color:#213650}
+.progress i{position:relative;overflow:hidden;background:linear-gradient(90deg,#3d7ff1 0%,#67a7ff 70%,#8bc0ff 100%);box-shadow:0 0 14px rgba(75,141,255,.35)}
+.progress i:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);transform:translateX(-100%);animation:progressSheen 2.8s ease-in-out infinite}
+.card{box-shadow:0 26px 78px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.04)}
+.card:after{content:"";position:absolute;left:22px;right:22px;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(65,119,188,.18),transparent);pointer-events:none}
+.game-stage{padding-top:2px}
+.keyboard{padding:2px 3px 0}
+.message{min-height:30px;display:flex;align-items:center;justify-content:center}
+@keyframes progressSheen{0%,55%{transform:translateX(-110%)}75%,100%{transform:translateX(110%)}}
+@media(max-width:650px){
+  .brand{padding-top:4px;padding-left:0}
+  .brand:after{font-size:7px;letter-spacing:.12em;margin-top:6px}
+  .top-actions{padding:3px;border-radius:14px;background:transparent;border-color:transparent;box-shadow:none}
+  .status{padding:3px 0 10px;margin:4px 0 8px}
+  .status>span:first-child{min-height:29px;padding:0 9px;font-size:11px}
+  .badge{min-height:29px;padding:0 8px;font-size:11px}
+  .progress{margin-left:0;margin-right:0}
+  .card:after{left:14px;right:14px}
+}
+@media(prefers-reduced-motion:reduce){.progress i:after{animation:none!important}}
+
+@media(prefers-reduced-motion:reduce){.tile.active:after,.row.last-result,.row.last-result .tile,.result-orb{animation:none!important;transition:none!important}}
+
+/* Visual v11 — polished launch / home state */
+.launch-banner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 14px;padding:14px 16px;border:1px solid rgba(92,145,220,.22);border-radius:18px;background:linear-gradient(135deg,rgba(22,39,64,.86),rgba(10,21,36,.72));box-shadow:inset 0 1px rgba(255,255,255,.045),0 10px 28px rgba(0,0,0,.16);overflow:hidden}
+.launch-banner:after{content:"";position:absolute;inset:-1px;background:linear-gradient(110deg,transparent 18%,rgba(89,154,255,.08) 48%,transparent 78%);transform:translateX(-70%);animation:launchShine 7s ease-in-out infinite;pointer-events:none}
+.launch-copy{position:relative;z-index:1;min-width:0}.launch-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#72a7f7;font-weight:800;margin-bottom:4px}.launch-title{font-size:16px;font-weight:800;letter-spacing:.01em}.launch-sub{margin-top:3px;color:var(--muted);font-size:12px;line-height:1.4}.launch-meta{position:relative;z-index:1;display:flex;gap:8px;flex:0 0 auto}.launch-chip{display:flex;align-items:center;gap:7px;padding:8px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);font-size:11px;color:#cbd7e8;white-space:nowrap}.launch-chip strong{color:#fff;font-size:13px}.game-card.launch-ready{box-shadow:0 22px 60px rgba(0,0,0,.34),0 0 0 1px rgba(79,143,255,.06)}
+@keyframes launchShine{0%,62%{transform:translateX(-70%)}78%,100%{transform:translateX(70%)}}
+@media(max-width:650px){.launch-banner{align-items:flex-start;flex-direction:column;padding:13px 14px}.launch-meta{width:100%}.launch-chip{flex:1;justify-content:center}.launch-sub{font-size:11px}.launch-title{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.launch-banner:after{animation:none}}
+
+.daily-panel{display:none!important}
+.modal-backdrop.win-modal{position:absolute!important;inset:0!important;width:100%;height:100%;box-sizing:border-box;z-index:40;padding:18px;border-radius:inherit;background:rgba(3,8,16,.62);backdrop-filter:blur(5px);align-items:center;justify-content:center}.win-modal.hidden{display:none!important}.daily-result-unlocked{pointer-events:none;background:rgba(3,8,16,.58);backdrop-filter:blur(5px)}
+.modal-backdrop.daily-result-unlocked .result-modal{pointer-events:auto}
+.modal-backdrop.daily-result-unlocked .result-modal button{pointer-events:none}
+
+/* MedTerm Premium Glass UI v16 — central game surface only */
+:root{
+  --bg:#04101d;--panel:rgba(9,29,49,.72);--panel2:rgba(11,39,62,.58);
+  --line:rgba(125,202,238,.24);--text:#edfaff;--muted:#9bb8ca;
+  --blue:#20c9f4;--green:#17b986;--green2:#63f0c2;--yellow:#d6a83e;--gray:#536b7e;
+}
+html{background:#04101d}
+body{
+ background:
+  radial-gradient(ellipse at 8% 14%,rgba(20,157,223,.19),transparent 32%),
+  radial-gradient(ellipse at 92% 5%,rgba(43,113,210,.16),transparent 34%),
+  radial-gradient(ellipse at 50% 100%,rgba(0,197,220,.09),transparent 45%),
+  linear-gradient(145deg,#030b15 0%,#071b2d 48%,#04101d 100%);
+ background-attachment:fixed;
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(119,210,245,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(119,210,245,.055) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+.app{position:relative;z-index:1;max-width:820px;padding-top:24px}
+.brand h1{letter-spacing:-.045em;font-weight:780;text-shadow:0 0 28px rgba(54,205,247,.22)}
+.brand h1:after{content:"";display:inline-block;width:5px;height:5px;margin:0 0 5px 8px;border-radius:50%;background:#5ce9ff;box-shadow:0 0 12px #32d9ff}
+.brand p{font-size:12px;letter-spacing:.015em}
+.top-actions{padding:5px;border:1px solid rgba(129,212,247,.22);border-radius:18px;background:linear-gradient(135deg,rgba(24,78,111,.36),rgba(6,23,40,.42));backdrop-filter:blur(24px) saturate(155%);-webkit-backdrop-filter:blur(24px) saturate(155%);box-shadow:0 12px 36px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.14),inset 0 -1px rgba(42,169,221,.08)}
+.icon-btn{background:linear-gradient(145deg,rgba(41,113,151,.4),rgba(7,31,51,.48));border-color:rgba(146,219,245,.23);border-radius:13px;box-shadow:inset 0 1px rgba(255,255,255,.14),0 5px 16px rgba(0,0,0,.12);transition:transform .18s,border-color .18s,background .18s}
+.icon-btn:hover{border-color:rgba(100,226,255,.65);background:linear-gradient(145deg,rgba(49,157,196,.46),rgba(7,31,51,.62));transform:translateY(-1px)}
+.card#gameCard{isolation:isolate;border:1px solid rgba(115,210,246,.33);border-radius:26px;padding:clamp(16px,3vw,26px);background:linear-gradient(138deg,rgba(14,52,78,.73),rgba(5,24,42,.78) 48%,rgba(9,39,62,.7));backdrop-filter:blur(28px) saturate(150%);-webkit-backdrop-filter:blur(28px) saturate(150%);box-shadow:0 24px 70px rgba(0,0,0,.34),0 0 0 1px rgba(45,191,234,.06),inset 0 1px rgba(255,255,255,.18),inset 0 -1px rgba(57,183,226,.12);margin-top:22px}
+#gameCard:before{content:"";position:absolute;z-index:-1;left:5%;right:5%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(191,245,255,.8),rgba(80,211,250,.65),transparent);opacity:.85}
+#gameCard:after{content:"";position:absolute;z-index:-1;pointer-events:none;inset:0;border-radius:inherit;background:radial-gradient(ellipse at 50% -12%,rgba(75,211,255,.12),transparent 45%);}
+.status{margin-top:0;color:#b9d2e1}.badge{background:rgba(92,164,201,.1);border:1px solid rgba(142,214,240,.18);backdrop-filter:blur(12px);color:#d8f2ff;border-radius:999px}
+.clue{background:linear-gradient(135deg,rgba(29,94,127,.28),rgba(5,28,47,.48));border:1px solid rgba(123,213,242,.25);border-radius:17px;box-shadow:inset 0 1px rgba(255,255,255,.1),0 10px 24px rgba(0,0,0,.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.info-btn{background:linear-gradient(145deg,rgba(45,155,193,.38),rgba(7,34,54,.58));border-color:rgba(101,221,255,.42);color:#91edff;box-shadow:inset 0 1px rgba(255,255,255,.17),0 0 18px rgba(22,199,241,.08)}
+.board-wrap{padding-top:13px;padding-bottom:16px}
+.row.current-row{background:linear-gradient(90deg,rgba(24,161,209,.08),rgba(53,137,192,.12),rgba(24,161,209,.08));border-color:rgba(86,205,246,.19);box-shadow:0 0 28px rgba(25,179,229,.08),inset 0 1px rgba(255,255,255,.045)}
+.tile{border:1px solid rgba(139,205,235,.33);border-radius:10px;background:linear-gradient(145deg,rgba(14,48,72,.72),rgba(4,22,39,.82));box-shadow:inset 0 1px rgba(255,255,255,.09),inset 0 -3px 7px rgba(0,0,0,.12),0 3px 8px rgba(0,0,0,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-weight:760}
+.tile.filled{border-color:rgba(146,226,249,.68);background:linear-gradient(145deg,rgba(31,99,130,.64),rgba(6,35,55,.88));box-shadow:inset 0 1px rgba(255,255,255,.17),0 0 14px rgba(37,185,230,.08)}
+.tile.active{border-color:#61e7ff;box-shadow:0 0 0 2px rgba(39,202,245,.14),0 0 20px rgba(25,194,239,.17),inset 0 1px rgba(255,255,255,.22)}
+.tile.fixed,.tile.correct{background:linear-gradient(145deg,#25d7a0,#078d72);border-color:#78ffda;color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.28),0 0 18px rgba(32,223,171,.2)}
+.tile.present{background:linear-gradient(145deg,#e5bd58,#9b7425);border-color:#ffdc7d;box-shadow:inset 0 1px rgba(255,255,255,.3),0 0 16px rgba(228,177,58,.14)}
+.tile.absent{background:linear-gradient(145deg,#536d80,#344b5e);border-color:#69859a;color:#edf5f8}
+.progress{height:7px;background:rgba(105,166,194,.19);border:1px solid rgba(137,208,235,.13);box-shadow:inset 0 1px 3px rgba(0,0,0,.24)}
+.progress i{background:linear-gradient(90deg,#16b8ed,#5be8ff,#37c5ee);box-shadow:0 0 12px rgba(41,210,250,.45);border-radius:99px}
+.keyboard{gap:6px;margin-top:13px}
+.key{border:1px solid rgba(134,203,232,.22);background:linear-gradient(145deg,rgba(29,81,111,.72),rgba(7,31,51,.82));border-radius:9px;box-shadow:inset 0 1px rgba(255,255,255,.13),0 4px 9px rgba(0,0,0,.16);transition:transform .12s,border-color .16s,background .16s,box-shadow .16s;backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.key:hover{border-color:rgba(109,225,255,.54);transform:translateY(-1px);box-shadow:inset 0 1px rgba(255,255,255,.18),0 6px 14px rgba(0,0,0,.18)}
+.key:active{transform:translateY(1px) scale(.97)}
+.key.correct{background:linear-gradient(145deg,rgba(35,213,156,.98),rgba(5,135,105,.98));border-color:#6bffda;box-shadow:inset 0 1px rgba(255,255,255,.24),0 0 16px rgba(32,223,171,.17)}
+.key.present{background:linear-gradient(145deg,rgba(223,181,69,.98),rgba(139,101,27,.98));border-color:#f5d16b}
+.key.absent{background:linear-gradient(145deg,rgba(54,80,99,.86),rgba(28,48,65,.88));border-color:rgba(116,148,169,.22);opacity:.8}
+.actions button{background:rgba(20,69,96,.28);border-color:rgba(126,205,235,.2);border-radius:12px;color:#c5e9f6}
+.actions button:hover{background:rgba(26,109,143,.34);border-color:rgba(108,225,255,.42)}
+.message{color:#bfe8f5}
+.modal-backdrop{background:rgba(1,9,18,.64);backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%)}
+.modal{background:linear-gradient(145deg,rgba(13,48,72,.91),rgba(4,21,37,.94));border:1px solid rgba(129,216,245,.31);backdrop-filter:blur(32px) saturate(155%);-webkit-backdrop-filter:blur(32px) saturate(155%);box-shadow:0 32px 100px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.15)}
+.mode-list button,.settings-section,.stat,.stats-summary,.history div{background:linear-gradient(140deg,rgba(27,84,113,.34),rgba(5,27,45,.46));border-color:rgba(130,207,235,.2);box-shadow:inset 0 1px rgba(255,255,255,.07)}
+.mode-icon,.stats-title-icon{background:linear-gradient(145deg,rgba(41,143,179,.34),rgba(7,37,58,.62));border-color:rgba(122,220,249,.26);color:#81e9ff}
+.primary{background:linear-gradient(110deg,#12b9eb,#168dd1);border:1px solid rgba(123,237,255,.72);box-shadow:0 7px 24px rgba(10,176,231,.24),inset 0 1px rgba(255,255,255,.35);color:#fff}
+.primary:hover{filter:brightness(1.1);box-shadow:0 8px 28px rgba(10,176,231,.34),inset 0 1px rgba(255,255,255,.4)}
+.result-modal{background:linear-gradient(145deg,rgba(14,61,83,.92),rgba(4,25,42,.95));border-color:rgba(98,227,255,.42)!important;box-shadow:0 24px 80px rgba(0,0,0,.5),0 0 44px rgba(30,196,242,.1),inset 0 1px rgba(255,255,255,.19)}
+.result-modal:before{background:linear-gradient(90deg,transparent,#76edff,transparent)}
+.result-orb{box-shadow:0 0 36px rgba(48,229,189,.3),inset 0 2px rgba(255,255,255,.3)}
+.tomorrow-countdown{background:linear-gradient(145deg,rgba(24,100,132,.4),rgba(4,30,49,.6));border-color:rgba(115,217,247,.27);box-shadow:inset 0 1px rgba(255,255,255,.1),0 8px 24px rgba(0,0,0,.14)}
+@media(max-width:650px){
+ .app{padding:17px 12px 28px}
+ header{gap:8px}
+ .brand h1{font-size:25px}
+ .brand p{font-size:10px}
+ .top-actions{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+ .card#gameCard{border-radius:22px;padding:14px 12px;margin-top:16px}
+ .tile{border-radius:8px}
+ .key{box-shadow:inset 0 1px rgba(255,255,255,.11),0 3px 7px rgba(0,0,0,.14)}
+}
+@media(prefers-reduced-motion:reduce){.icon-btn,.key,.tile,.progress i{transition:none!important}}
+
+</style>
+<style>
+/* На мобильных оставляем сами стеклянные кнопки, но убираем общую панель-подложку. */
+@media (max-width:650px){
+  .top-actions{
+    background:transparent !important;
+    border-color:transparent !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+}
 </style>
 </head>
 <body>
 <div class="app">
 <header>
-  <div class="brand"><h1>🩺 МедТермин</h1><p>Угадывай медицинские термины любой длины</p></div>
+  <div class="brand"><h1>🩺 МедТермин</h1></div>
   <div class="top-actions" aria-label="Управление игрой">
 <button id="modeBtn" class="icon-btn" type="button" title="Слово дня" aria-label="Режим: Слово дня"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16M8 13h3M8 17h5"/></svg></button>
 <div id="mobileModeTools" class="mobile-mode-tools" aria-label="Дополнительные действия"><button id="settingsBtn" class="icon-btn" type="button" title="Настройки" aria-label="Настройки"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3.8l1.2 1.9 2.2.5 1.8-1 1.6 1.6-1 1.8.5 2.2 1.9 1.2v2.2l-1.9 1.2-.5 2.2 1 1.8-1.6 1.6-1.8-1-2.2.5-1.2 1.9H9.8l-1.2-1.9-2.2-.5-1.8 1L3 19.4l1-1.8-.5-2.2-1.9-1.2v-2.2l1.9-1.2L4 8.6 3 6.8l1.6-1.6 1.8 1 2.2-.5 1.2-1.9H12z"/><circle cx="10.9" cy="13.1" r="3.1"/></svg></button><button id="helpBtn" class="icon-btn" type="button" title="Как играть" aria-label="Как играть"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.7 9.2a2.5 2.5 0 1 1 4.1 1.9c-1.2.9-1.8 1.3-1.8 2.6M12 16.9h.01" stroke-linecap="round"/></svg></button></div>
@@ -96,37 +301,59 @@ header{display:flex;justify-content:space-between;gap:14px;align-items:center}.b
 </div>
 </header>
 <select id="mode" class="hidden"><option value="daily" selected>Термин дня</option><option value="classic">Классика</option><option value="definition">По определению</option><option value="clue">С подсказками</option></select>
-<main class="card">
+<main class="card" id="gameCard">
   <div class="status"><span id="round"></span><div class="badges"><span class="badge" id="badge"></span><span class="badge" id="pool"></span></div></div>
-  <div id="clue" class="clue hidden"></div>
+  <div id="dailyPanel" class="daily-panel" aria-live="polite"><div class="daily-left"><span class="daily-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16M8 13h3M8 17h5"/></svg></span><div class="daily-copy"><b>Слово дня <span class="daily-streak" id="dailyStreak">🔥 0</span></b><span id="dailyStatus">Один медицинский термин на сегодня</span></div></div><div class="daily-count"><b id="dailyCountdown">—</b><span id="dailyCountdownLabel">до нового термина</span></div></div><div id="clue" class="clue hidden"><div class="clue-head"><b id="clueTitle">Подсказка</b><button type="button" class="info-btn" id="infoBtn" data-tip="Что означают учебные определения?" aria-label="Информация">i</button></div><div id="hintText" class="clue-definition"></div><div id="clueContext" class="clue-context"></div></div>
   <div class="progress"><i id="progress"></i></div>
   <div class="game-stage"><div class="board-wrap" id="boardWrap"><div id="board" class="board"></div></div></div>
   <div id="msg" class="message"></div>
   <div id="keys" class="keyboard"></div>
   <div class="actions"><button class="ghost hidden" id="hint">Подсказка</button><button class="ghost" id="clear">Очистить строку</button></div>
   <div class="note">Печатай прямо в кубики. Enter — проверить, Backspace — удалить. Зеленые буквы, найденные на правильных местах, автоматически переносятся в следующую строку.</div>
+<div id="winModal" class="modal-backdrop hidden win-modal"><div class="modal result-modal"><div class="confetti" id="confetti"></div><div class="result-orb" id="resultOrb">✓</div><div class="result-kicker" id="resultKicker">ТЕРМИН РАЗГАДАН</div><div class="win-title" id="winTitle">Победа!</div><div id="answer" class="win-answer"></div><div class="result-metrics"><div><b id="resultGuesses">0</b><span>попыток</span></div><div><b id="resultStreak">0</b><span>серия</span></div><div><b id="resultRate">0%</b><span>побед</span></div></div><div id="def" class="win-definition"></div><div id="meta" class="win-meta"></div><div id="tomorrowCountdown" class="tomorrow-countdown hidden"><span>До нового термина</span><strong id="tomorrowTime">—</strong></div><button class="primary result-action" id="again">Следующий термин</button></div></div>
 </main>
 </div>
 
 
 <div id="modeModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>Режим игры</h2><button class="ghost close" id="closeMode">×</button></div><div class="mode-list">
 <button data-mode="daily"><span class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16M8 13h3M8 17h5"/></svg></span><span><b>Слово дня</b><small>Один общий термин на сегодня</small></span></button>
-<button data-mode="classic"><span class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M21 12h-3M12 21v-3M3 12h3"/></svg></span><span><b>Классика</b><small>Случайный термин</small></span></button>
+<button data-mode="classic"><span class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M21 12h-3M12 21v-3M3 12h3"/></svg></span><span><b>Классика</b><small>Случайный термин · до 9 букв</small></span></button>
 <button data-mode="definition"><span class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H19v16H7.5A2.5 2.5 0 0 0 5 21V5.5z"/><path d="M5 19.5A2.5 2.5 0 0 1 7.5 17H19M9 7h6M9 10h7"/></svg></span><span><b>По определению</b><small>Угадывай по описанию</small></span></button>
 <button data-mode="clue"><span class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 21h4"/><path d="M8.5 15.5c-1.3-1-2.5-2.4-2.5-4.5a6 6 0 1 1 12 0c0 2.1-1.2 3.5-2.5 4.5-.7.5-1.2 1.1-1.3 1.8h-4.4c-.1-.7-.6-1.3-1.3-1.8z"/></svg></span><span><b>С подсказками</b><small>Подсказки открываются по ходу игры</small></span></button>
 </div></div></div>
-<div id="settingsModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>⚙ Настройки</h2><button class="ghost close" id="closeSettings">×</button></div><p class="settings-intro">Настройки влияют на «Классику», «По определению» и «С подсказками». Для «Слова дня» действует отдельный фиксированный отбор: до 9 букв и не сложнее средней.</p><div class="settings-section"><h3>Фильтры терминов</h3><div class="controls">
+<div id="settingsModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>⚙ Настройки</h2><button class="ghost close" id="closeSettings">×</button></div><p class="settings-intro">Настройки влияют на «Классику», «По определению» и «С подсказками». Если длина или сложность не выбрана, в режимах «По определению» и «С подсказками» действует правило по умолчанию: от 10 букв и сложность не ниже средней. Выбери параметры вручную, чтобы использовать другой отбор. Для «Слова дня» всегда действуют отдельные правила: до 9 букв и не сложнее средней.</p><div class="settings-section"><h3>Фильтры терминов</h3><div class="controls">
         <div class="control"><label>Тип</label><select id="type"><option value="all">Все типы</option></select></div>
-    <div class="control"><label>Длина</label><select id="len"><option value="any">Любая</option><option value="4-6">4–6</option><option value="7-9">7–9</option><option value="10-12">10–12</option><option value="13-99">13+</option></select></div>
+    <div class="control"><label>Длина</label><select id="len"><option value="default" selected>Не выбрано</option><option value="any">Любая длина</option><option value="4-6">4–6</option><option value="7-9">7–9</option><option value="10-12">10–12</option><option value="13-99">13+</option></select></div>
     <div class="control"><label>Раздел</label><select id="cat"><option value="all">Все разделы</option></select></div>
-    <div class="control"><label>Сложность</label><select id="difficulty"><option value="all">Любая</option><option value="легкий">Лёгкая</option><option value="средний">Средняя</option><option value="сложный">Сложная</option></select></div>
+    <div class="control"><label>Сложность</label><select id="difficulty"><option value="default" selected>Не выбрано</option><option value="all">Любая сложность</option><option value="легкий">Лёгкая</option><option value="средний">Средняя</option><option value="сложный">Сложная</option></select></div>
   </div></div><div class="settings-section"><h3>Правила</h3><div style="color:#aebbd0;font-size:13px;line-height:1.5">Можно вводить любую комбинацию букв — она проверяется по совпадению с загаданным термином. Словарь используется для выбора ответа, а не для запрета попытки.</div></div><div class="settings-actions"><button class="primary" id="applySettings">Применить</button></div></div></div>
-<div id="statsModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2 class="stats-title"><span class="stats-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19V9M12 19V5M19 19v-7" stroke-linecap="round"/><path d="M3.5 19.5h17" stroke-linecap="round"/><circle cx="5" cy="9" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.2" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span> Статистика</h2><button class="ghost close" id="closeStats">×</button></div><div class="stats-grid"><div class="stat accent"><b id="played">0</b><span>сыграно</span></div><div class="stat success"><b id="wins">0</b><span>решено</span></div><div class="stat gold"><b id="streak">0</b><span>текущая серия</span></div><div class="stat"><b id="best">0</b><span>лучшая серия</span></div></div><div class="stats-summary"><span>Процент побед</span><b id="winRate">0%</b></div><h3 style="margin:16px 0 6px">Последние игры</h3><div id="history" class="history"></div></div></div>
+<div id="statsModal" class="modal-backdrop hidden"><div class="modal stats-modal"><div class="modal-head"><h2 class="stats-title"><span class="stats-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19V9M12 19V5M19 19v-7" stroke-linecap="round"/><path d="M3.5 19.5h17" stroke-linecap="round"/><circle cx="5" cy="9" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.2" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span> Статистика</h2><button class="ghost close" id="closeStats">×</button></div><div class="stats-grid"><div class="stat accent"><b id="played">0</b><span>сыграно</span></div><div class="stat success"><b id="wins">0</b><span>решено</span></div><div class="stat gold"><b id="streak">0</b><span>текущая серия</span></div><div class="stat"><b id="best">0</b><span>лучшая серия</span></div></div><div class="stats-summary"><span>Процент побед</span><b id="winRate">0%</b></div><div class="stats-caption">История последних результатов</div><div id="history" class="history"></div></div></div>
 
-<div id="helpModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>❔ Как играть</h2><button class="ghost close" id="closeHelp">×</button></div><p class="help-intro">Твоя задача — угадать медицинский термин за ограниченное число попыток. Термины могут быть разной длины.</p><div class="help-steps"><div class="help-step"><span class="help-num">1</span><div><b>Введи слово</b><span>Нажимай буквы на экранной клавиатуре или используй физическую клавиатуру.</span></div></div><div class="help-step"><span class="help-num">2</span><div><b>Проверь попытку</b><span>Когда все кубики заполнены, нажми ↵ Enter.</span></div></div><div class="help-step"><span class="help-num">3</span><div><b>Смотри на подсказку цветом</b><span>Цвет каждой буквы показывает, насколько она совпала с загаданным термином.</span></div></div><div class="help-step"><span class="help-num">4</span><div><b>Используй найденные буквы</b><span>Правильные зелёные буквы автоматически переносятся в следующую строку.</span></div></div></div><div class="legend"><div class="legend-item"><span class="legend-tile correct">А</span><span><b>Зелёный</b> — буква есть и стоит на своём месте.</span></div><div class="legend-item"><span class="legend-tile present">А</span><span><b>Жёлтый</b> — буква есть, но находится в другом месте.</span></div><div class="legend-item"><span class="legend-tile absent">А</span><span><b>Серый</b> — такой буквы в ответе нет.</span></div></div><div class="settings-section" style="margin-top:14px"><b>Режим «Слово дня»</b><div style="color:#aebbd0;font-size:13px;line-height:1.5;margin-top:4px">Один и тот же термин для всех игроков в течение календарного дня. Он выбирается только из слов до 9 букв и не сложнее средней сложности. Сыграть можно один раз в день.</div></div></div></div>
-<div id="winModal" class="modal-backdrop hidden win-modal"><div class="modal"><div class="confetti" id="confetti"></div><div class="victory-icon">🏆</div><div class="win-title" id="winTitle">Победа!</div><div id="answer" class="win-answer"></div><div id="def" class="win-definition"></div><div id="meta" class="win-meta"></div><button class="primary" id="again">Следующий термин</button></div></div>
+<div id="helpModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><h2>❔ Как играть</h2><button class="ghost close" id="closeHelp">×</button></div><p class="help-intro">Твоя задача — угадать медицинский термин за ограниченное число попыток. В «Классике» — до 9 букв. В режимах «По определению» и «С подсказками» по умолчанию используются термины от 10 букв средней или высокой сложности; фильтры можно настроить вручную.</p><div class="help-steps"><div class="help-step"><span class="help-num">1</span><div><b>Введи слово</b><span>Нажимай буквы на экранной клавиатуре или используй физическую клавиатуру.</span></div></div><div class="help-step"><span class="help-num">2</span><div><b>Проверь попытку</b><span>Когда все кубики заполнены, нажми ↵ Enter.</span></div></div><div class="help-step"><span class="help-num">3</span><div><b>Смотри на подсказку цветом</b><span>Цвет каждой буквы показывает, насколько она совпала с загаданным термином.</span></div></div><div class="help-step"><span class="help-num">4</span><div><b>Используй найденные буквы</b><span>Правильные зелёные буквы автоматически переносятся в следующую строку.</span></div></div></div><div class="legend"><div class="legend-item"><span class="legend-tile correct">А</span><span><b>Зелёный</b> — буква есть и стоит на своём месте.</span></div><div class="legend-item"><span class="legend-tile present">А</span><span><b>Жёлтый</b> — буква есть, но находится в другом месте.</span></div><div class="legend-item"><span class="legend-tile absent">А</span><span><b>Серый</b> — такой буквы в ответе нет.</span></div></div><div class="settings-section" style="margin-top:14px"><b>Режим «Слово дня»</b><div style="color:#aebbd0;font-size:13px;line-height:1.5;margin-top:4px">Один и тот же термин для всех игроков в течение календарного дня. Он выбирается только из слов до 9 букв и не сложнее средней сложности. Сыграть можно один раз в день.</div></div></div></div>
+<div id="infoModal" class="modal-backdrop hidden"><div class="modal info-modal"><div class="modal-head"><h2>ⓘ Информация</h2><button class="ghost close" id="closeInfo">×</button></div><p>Краткое учебное определение будет расширено при подключении проверенного медицинского словаря.</p><p style="color:#aebbd0;font-size:13px;line-height:1.5">Сейчас в игре используются краткие учебные определения, добавленные для каждого термина. Они предназначены для обучения и не заменяют проверенные медицинские справочники.</p></div></div>
+
 
 <script src="./data/medical_terms.js"></script>
+<script>
+// Visual v11: lightweight launch-state summary
+function updateLaunchBanner(){
+  const b=document.getElementById('launchBanner'); if(!b)return;
+  const title=document.getElementById('launchTitle'),sub=document.getElementById('launchSub');
+  const streak=document.getElementById('launchStreak'),rate=document.getElementById('launchWinRate');
+  let stats=null; try{stats=JSON.parse(localStorage.getItem('medterm.stats.v1')||'null')}catch(e){}
+  const wins=Number(stats?.wins||0), games=Number(stats?.games||0);
+  if(streak)streak.textContent=String(Number(localStorage.getItem('medterm.daily.streak')||0));
+  if(rate)rate.textContent=(games?Math.round(wins/games*100):0)+'%';
+  const dailyDone=G.mode==='daily'&&G.over;
+  if(dailyDone){if(title)title.textContent='Сегодняшний термин уже решён';if(sub)sub.textContent='Результат сохранён. Возвращайся завтра за новым термином.'}
+  else if(G.mode==='daily'){if(title)title.textContent='Новое слово дня уже ждёт';if(sub)sub.textContent='Один медицинский термин в день — попробуй разгадать его за 6 попыток.'}
+  else {if(title)title.textContent='Готов к новой медицинской задаче';if(sub)sub.textContent='Выбери режим и проверь себя на медицинских терминах.'}
+}
+const _updateProgressOriginal=typeof updateProgress==='function'?updateProgress:null;
+if(typeof newGame==='function'){const _newGameV11=newGame;newGame=function(){const r=_newGameV11.apply(this,arguments);setTimeout(updateLaunchBanner,0);return r}}
+setTimeout(updateLaunchBanner,0);
+
+</script>
 <script>
 'use strict';
 const TERMS = Array.isArray(window.TERMS) ? window.TERMS : [];
@@ -141,19 +368,33 @@ const MODE_ICONS = {
   clue:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 21h4"/><path d="M8.5 15.5c-1.3-1-2.5-2.4-2.5-4.5a6 6 0 1 1 12 0c0 2.1-1.2 3.5-2.5 4.5-.7.5-1.2 1.1-1.3 1.8h-4.4c-.1-.7-.6-1.3-1.3-1.8z"/></svg>'
 };
 function updateModeButton(){const b=$('modeBtn');b.innerHTML=MODE_ICONS[G.mode];b.title=MODE_NAMES[G.mode];b.setAttribute('aria-label','Режим: '+MODE_NAMES[G.mode])}
-let G = {mode:'daily', len:'any', type:'all', cat:'all', difficulty:'all', answer:null, rows:[], current:[], max:6, over:false, hints:0};
+let G = {mode:'daily', len:'any', type:'all', cat:'all', difficulty:'all', answer:null, rows:[], current:[], max:6, over:false, hints:0, revealing:false};
 
 function stats(){try{return JSON.parse(localStorage.getItem('medterm.v2'))||{played:0,wins:0,streak:0,best:0,history:[]}}catch(e){return{played:0,wins:0,streak:0,best:0,history:[]}}}
 function saveStats(s){localStorage.setItem('medterm.v2',JSON.stringify(s))}
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function regularPool(){
+  const isClassic=G.mode==='classic';
+  const useDefaults=G.mode==='definition'||G.mode==='clue';
   const p=TERMS.filter(t=>{
     const l=norm(t.norm||t.word).length;
-    let lenOK=true;
-    if(G.len!=='any'){const [a,b]=G.len.split('-').map(Number);lenOK=l>=a&&l<=b}
-    return lenOK&&(G.type==='all'||t.type===G.type)&&(G.cat==='all'||t.category===G.cat)&&(G.difficulty==='all'||t.difficulty===G.difficulty);
+    if(isClassic&&l>9)return false;
+    let lenOK=true, difficultyOK=true;
+    if(useDefaults&&G.len==='default')lenOK=l>=10;
+    else if(G.len!=='default'&&G.len!=='any'){const [a,b]=G.len.split('-').map(Number);lenOK=l>=a&&l<=b}
+    if(useDefaults&&G.difficulty==='default')difficultyOK=t.difficulty==='средний'||t.difficulty==='сложный';
+    else if(G.difficulty!=='default'&&G.difficulty!=='all')difficultyOK=t.difficulty===G.difficulty;
+    return lenOK&&difficultyOK&&(G.type==='all'||t.type===G.type)&&(G.cat==='all'||t.category===G.cat);
   });
-  return p.length?p:TERMS;
+  if(p.length)return p;
+  // При несовместимых фильтрах сохраняем базовые правила режима.
+  return TERMS.filter(t=>{const l=norm(t.norm||t.word).length;if(isClassic)return l<=9;if(useDefaults&&G.len==='default'&&l<10)return false;if(useDefaults&&G.difficulty==='default'&&t.difficulty!=='средний'&&t.difficulty!=='сложный')return false;return true});
+}
+function syncClassicLengthLimit(){
+  const select=$('len');if(!select)return;
+  const classic=$('mode').value==='classic';
+  [...select.options].forEach(o=>{if(o.value==='10-12'||o.value==='13-99')o.disabled=classic});
+  if(classic&&(select.value==='10-12'||select.value==='13-99'))select.value='default';
 }
 function dailyPool(){
   const p=TERMS.filter(t=>{
@@ -167,18 +408,23 @@ function todayKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMo
 function dailyIndex(p){const key=todayKey();let n=0;for(const c of key)n=(n*31+c.charCodeAt(0))%99991;return n%p.length}
 function dailySave(data){try{localStorage.setItem('medterm.daily.v1',JSON.stringify(data))}catch(e){}}
 function dailyLoad(){try{return JSON.parse(localStorage.getItem('medterm.daily.v1'))||null}catch(e){return null}}
+function dailyHistory(){try{return JSON.parse(localStorage.getItem('medterm.daily.history.v1'))||[]}catch(e){return[]}}
+function saveDailyHistory(h){try{localStorage.setItem('medterm.daily.history.v1',JSON.stringify(h.slice(0,90)))}catch(e){}}
+function dailyStreak(){const h=dailyHistory().filter(x=>x&&x.date&&x.ok).map(x=>x.date);const set=new Set(h);let d=new Date();let streak=0;while(true){const key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');if(!set.has(key))break;streak++;d.setDate(d.getDate()-1)}return streak}
+function updateDailyPanel(){const panel=$('dailyPanel');if(!panel)return;const daily=G.mode==='daily';panel.classList.toggle('visible',daily);if(!daily)return;const saved=dailyLoad(),done=!!(saved&&saved.date===todayKey()&&saved.answer===G.answer?.word&&saved.over);panel.classList.toggle('done',done);$('dailyStreak').textContent='🔥 '+dailyStreak();$('dailyStatus').textContent=done?'Сегодняшний термин уже решён. Возвращайся завтра.':'Один медицинский термин на сегодня';const now=new Date(),next=new Date(now);next.setHours(24,0,0,0);const ms=Math.max(0,next-now),h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);$('dailyCountdown').textContent=h+'ч '+String(m).padStart(2,'0')+'м';$('dailyCountdownLabel').textContent='до нового термина'}
+let dailyPanelTimer=null;function startDailyPanelTimer(){if(dailyPanelTimer)clearInterval(dailyPanelTimer);dailyPanelTimer=setInterval(()=>{if(G.mode==='daily')updateDailyPanel()},60000)}
 function populate(){
   for(const [id,vals] of [['type',[...new Set(TERMS.map(t=>t.type))].sort()],['cat',[...new Set(TERMS.map(t=>t.category))].sort((a,b)=>a.localeCompare(b,'ru'))]]){
     for(const v of vals){const o=document.createElement('option');o.value=v;o.textContent=v.charAt(0).toUpperCase()+v.slice(1);$(id).appendChild(o)}
   }
 }
-function newGame(){
-  G.mode=$('mode').value;G.len=$('len').value;G.type=$('type').value;G.cat=$('cat').value;G.difficulty=$('difficulty').value;
+function newGame(){$('gameCard').classList.remove('game-win','game-loss');$('msg').className='message';$('msg').textContent='';
+  syncClassicLengthLimit();G.mode=$('mode').value;G.len=$('len').value;G.type=$('type').value;G.cat=$('cat').value;G.difficulty=$('difficulty').value;
   const p=pool();G.answer=p[G.mode==='daily'?dailyIndex(p):Math.floor(Math.random()*p.length)];
   G.rows=[];G.over=false;G.hints=0;G.current=Array(norm(G.answer.norm).length).fill('');
-  updateModeButton();$('hint').classList.toggle('hidden',G.mode!=='clue');
-  $('badge').textContent=norm(G.answer.norm).length+' букв';$('pool').textContent='терминов: '+p.length;$('round').textContent='Попытка 1 из '+G.max;$('msg').textContent='';
-  $('winModal').classList.add('hidden');$('again').textContent=G.mode==='daily'?'Сегодня уже сыграно':'Следующий термин';
+  updateModeButton();updateDailyPanel();startDailyPanelTimer();$('hint').classList.toggle('hidden',G.mode!=='clue');
+  $('badge').textContent=norm(G.answer.norm).length+' букв';$('pool').textContent='терминов: '+p.length;$('round').textContent=MODE_NAMES[G.mode];$('msg').textContent='';
+  $('winModal').classList.add('hidden');$('winModal').classList.remove('daily-wait','daily-result-unlocked');$('def').classList.remove('hidden');$('meta').classList.remove('hidden');$('tomorrowCountdown').classList.add('hidden');$('again').disabled=false;$('again').removeAttribute('aria-disabled');$('again').style.opacity='';if(typeof tomorrowTimer!=='undefined'&&tomorrowTimer)clearInterval(tomorrowTimer);$('again').textContent=G.mode==='daily'?'Сегодня уже сыграно':'Следующий термин';
   renderClue();buildBoard();renderCurrent();updateProgress();
   if(G.mode==='daily')restoreDaily();
 }
@@ -188,15 +434,39 @@ function restoreDaily(){
   if(saved.answer!==G.answer.word)return;
   G.rows=Array.isArray(saved.rows)?saved.rows:[];G.over=!!saved.over;G.hints=Number(saved.hints)||0;G.current=Array(norm(G.answer.norm).length).fill('');
   renderRows();updateProgress();
-  if(G.over){$('round').textContent='Слово дня завершено';$('msg').textContent='Сегодняшняя партия уже сыграна.';showResultModal(!!saved.ok,true)}
-  else $('round').textContent='Продолжить: попытка '+(G.rows.length+1)+' из '+G.max;
+  if(G.over){$('round').textContent=MODE_NAMES[G.mode];$('msg').textContent='Сегодняшняя партия уже сыграна.';showResultModal(!!saved.ok,true)}
+  else $('round').textContent=MODE_NAMES[G.mode];
+  updateDailyPanel();
 }
+
+function cleanDefinition(text, answer){
+  let out=String(text||'').trim();
+  out=out.replace(/^Медицинский термин\s*:\s*[^.]+\.\s*/i,'');
+  if(answer){const escaped=String(answer).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const re=new RegExp('\\b'+escaped+'\\b','gi');out=out.replace(re,'термин')}
+  return out.trim();
+}
+function miniDefinition(){return String(G.answer?.miniDefinition||'Краткое учебное описание термина пока недоступно.').trim()}
 function renderClue(){
   const b=$('clue');
-  if(G.mode==='definition'){b.classList.remove('hidden');b.innerHTML='<b>Определение:</b> '+esc(G.answer.definition)}
-  else if(G.mode==='clue'){b.classList.remove('hidden');b.innerHTML='<b>Раздел:</b> '+esc(G.answer.category)+'<br><span id="hintText">Подсказки будут открываться по мере игры.</span>'}
-  else if(G.mode==='daily'){b.classList.remove('hidden');b.innerHTML='<b>Термин дня:</b> один ответ на календарную дату.'}
-  else b.classList.add('hidden');
+  if(G.mode==='definition'){
+    b.classList.remove('hidden');$('clueTitle').textContent='Определение';$('hintText').textContent=miniDefinition();$('clueContext').textContent='';
+  } else if(G.mode==='clue'){
+    b.classList.remove('hidden');$('clueTitle').textContent='Подсказка';$('hintText').textContent='Первая подсказка появится после первой попытки.';$('clueContext').textContent='';
+  } else b.classList.add('hidden')
+}
+function updateClue(){
+  if(G.mode!=='clue')return;
+  const n=Math.max(G.hints,G.rows.length);
+  let title='Подсказка',text='Первая подсказка появится после первой попытки.',context='';
+  if(n>=3){title='Контекст';text='Термин относится к разделу «'+G.answer.category+'» и обозначает '+G.answer.type+'.';context='Третья подсказка даёт контекст, а не повторяет определение.'}
+  else if(n>=2){title='Первая буква';text='Термин начинается с буквы «'+G.answer.word[0]+'».';context='Следующая подсказка откроет контекст термина.'}
+  else if(n>=1){title='Раздел';text='Термин относится к разделу «'+G.answer.category+'».';context='Это первая подсказка.'}
+  $('clueTitle').textContent=title;$('hintText').textContent=text;$('clueContext').textContent=context;
+}
+function giveHint(){
+  if(G.over||G.revealing)return;if(G.mode!=='clue')return;
+  if(G.hints>=3){$('msg').textContent='Все доступные подсказки уже открыты.';return}
+  G.hints++;updateClue();
 }
 function scoreGuess(g,a){
   const res=Array(g.length).fill('absent'),used=Array(a.length).fill(false);
@@ -219,30 +489,54 @@ function buildBoard(){
   renderKeys();
 }
 function renderCurrent(){
-  const row=$('board').children[G.rows.length];if(!row)return;const fixed=fixedLetters();const chars=G.current;
+  const board=$('board');[...board.children].forEach(r=>r.classList.remove('current-row'));
+  const row=board.children[G.rows.length];if(!row)return;const fixed=fixedLetters();const chars=G.current;
+  if(!G.over&&!G.revealing)row.classList.add('current-row');
+  let activeIndex=-1;
+  if(!G.over&&!G.revealing)for(let i=0;i<fixed.length;i++)if(!fixed[i]&&!chars[i]){activeIndex=i;break}
   for(let i=0;i<row.children.length;i++){
-    const t=row.children[i];const value=fixed[i]||chars[i]||'';t.textContent=value;t.classList.toggle('fixed',!!fixed[i]);t.classList.toggle('filled',!fixed[i]&&!!chars[i]);t.classList.toggle('active',!G.over&&!fixed[i]);
+    const t=row.children[i];const value=fixed[i]||chars[i]||'';t.textContent=value;t.classList.toggle('fixed',!!fixed[i]);t.classList.toggle('filled',!fixed[i]&&!!chars[i]);t.classList.toggle('active',i===activeIndex);
   }
 }
 function renderRows(){
   const board=$('board');G.rows.forEach((r,ri)=>{const row=board.children[ri];for(let i=0;i<row.children.length;i++){const t=row.children[i];t.textContent=r.word[i]||'';t.className='tile '+r.score[i]}});
   renderCurrent();renderKeys();
 }
-function renderKeys(){
-  const box=$('keys');box.innerHTML='';const state={};
-  for(const r of G.rows)r.score.forEach((v,i)=>{const c=r.word[i];if(state[c]!=='correct'&&(state[c]!=='present'||v==='correct'))state[c]=v});
+function keyboardState(rows=G.rows){
+  const state={};
+  for(const r of rows)r.score.forEach((v,i)=>{const c=r.word[i];if(state[c]!=='correct'&&(state[c]!=='present'||v==='correct'))state[c]=v});
+  return state;
+}
+function renderKeys(rows=G.rows){
+  const box=$('keys');box.innerHTML='';const state=keyboardState(rows);
   ALPHABET.forEach(c=>{const b=document.createElement('button');b.type='button';b.className='key '+(state[c]||'');b.textContent=c;b.addEventListener('click',()=>typeLetter(c));box.appendChild(b)});
   const enter=document.createElement('button');enter.type='button';enter.className='key primary';enter.textContent='↵';enter.addEventListener('click',submitGuess);box.appendChild(enter);
   const back=document.createElement('button');back.type='button';back.className='key';back.textContent='⌫';back.addEventListener('click',backspace);box.appendChild(back);
 }
+function revealKey(letter, status){
+  const key=[...document.querySelectorAll('#keys .key')].find(b=>b.textContent===letter);
+  if(!key)return;
+  const priority={absent:1,present:2,correct:3};
+  const current=[...key.classList].find(c=>priority[c]);
+  if(current && priority[current]>=priority[status])return;
+  key.classList.remove('absent','present','correct','key-reveal');
+  key.classList.add(status,'key-reveal');
+  setTimeout(()=>key.classList.remove('key-reveal'),360);
+}
 function typeLetter(c){
-  if(G.over)return;const a=norm(G.answer.norm),fixed=fixedLetters();
+  if(G.over||G.revealing)return;const a=norm(G.answer.norm),fixed=fixedLetters();
   if(!Array.isArray(G.current)||G.current.length!==a.length)G.current=Array(a.length).fill('');
-  for(let i=0;i<a.length;i++)if(!fixed[i]&&!G.current[i]){G.current[i]=c;break}
-  renderCurrent();
+  for(let i=0;i<a.length;i++)if(!fixed[i]&&!G.current[i]){
+    G.current[i]=c;renderCurrent();
+    const row=$('board').children[G.rows.length],tile=row&&row.children[i];
+    if(tile){tile.classList.remove('pop','just-filled');void tile.offsetWidth;tile.classList.add('pop','just-filled');setTimeout(()=>tile.classList.remove('pop','just-filled'),210)}
+    const key=[...document.querySelectorAll('#keys .key')].find(b=>b.textContent===c);
+    if(key){key.classList.remove('key-press');void key.offsetWidth;key.classList.add('key-press');setTimeout(()=>key.classList.remove('key-press'),190)}
+    break
+  }
 }
 function backspace(){
-  if(G.over)return;const a=norm(G.answer.norm),fixed=fixedLetters();
+  if(G.over||G.revealing)return;const a=norm(G.answer.norm),fixed=fixedLetters();
   if(!Array.isArray(G.current)||G.current.length!==a.length)G.current=Array(a.length).fill('');
   for(let i=a.length-1;i>=0;i--)if(!fixed[i]&&G.current[i]){G.current[i]='';break}
   renderCurrent();
@@ -252,37 +546,69 @@ function currentWord(){
   if(!Array.isArray(G.current)||G.current.length!==a.length)G.current=Array(a.length).fill('');
   return a.split('').map((_,i)=>fixed[i]||G.current[i]||'').join('');
 }
+function animateReveal(rowIndex, score, word, done){
+  const board=$('board'),row=board.children[rowIndex];
+  if(!row){done();return}
+  board.classList.add('is-revealing');
+  const tiles=[...row.children];
+  tiles.forEach((t,i)=>{
+    t.classList.remove('correct','present','absent','reveal');
+    t.style.visibility='hidden';
+    setTimeout(()=>{
+      t.style.visibility='visible';
+      const status=score[i]||'absent';
+      t.classList.add(status,'reveal');
+      revealKey(word[i],status);
+    }, i*72);
+  });
+  const total=Math.max(0,(tiles.length-1)*72)+500;
+  setTimeout(()=>{tiles.forEach(t=>t.classList.remove('reveal'));row.classList.add('reveal-complete');board.classList.remove('is-revealing');setTimeout(()=>row.classList.remove('reveal-complete'),320);done()},total);
+}
 function submitGuess(){
-  if(G.over)return;
+  if(G.over||G.revealing)return;
   const a=norm(G.answer.norm),g=currentWord();
   if(g.length!==a.length || g.split('').some(ch => !ch)){$('msg').textContent='Заполни все кубики перед проверкой.';return}
-  const score=scoreGuess(g,a);G.rows.push({word:g,score});G.current=Array(a.length).fill('');renderRows();updateProgress();
-  if(g===a){finish(true);return}
-  if(G.rows.length>=G.max){finish(false);return}
-  if(G.mode==='daily')dailySave({date:todayKey(),answer:G.answer.word,rows:G.rows,over:false,ok:false,hints:G.hints});
-  $('round').textContent='Попытка '+(G.rows.length+1)+' из '+G.max;
-  if(G.mode==='clue')updateClue();
+  const score=scoreGuess(g,a);G.rows.push({word:g,score});G.current=Array(a.length).fill('');G.revealing=true;renderRows();
+  const rowIndex=G.rows.length-1;
+  const resultRow=$('board').children[rowIndex];
+  if(resultRow)resultRow.classList.add('last-result');
+  renderKeys(G.rows.slice(0,-1));
+  updateProgress();
+  animateReveal(rowIndex,score,g,()=>{
+    renderKeys();
+    G.revealing=false;
+    $('progress').classList.remove('bump');void $('progress').offsetWidth;$('progress').classList.add('bump');
+    if(g===a){finish(true);return}
+    if(G.rows.length>=G.max){finish(false);return}
+    if(G.mode==='daily')dailySave({date:todayKey(),answer:G.answer.word,rows:G.rows,over:false,ok:false,hints:G.hints});
+    $('round').textContent=MODE_NAMES[G.mode];
+    const nextRow=$('board').children[G.rows.length];
+    if(nextRow){nextRow.classList.remove('entering-row');void nextRow.offsetWidth;nextRow.classList.add('entering-row');setTimeout(()=>nextRow.classList.remove('entering-row'),430)}
+    const stage=document.querySelector('.game-stage');if(stage){stage.classList.remove('cycle-pulse');void stage.offsetWidth;stage.classList.add('cycle-pulse');setTimeout(()=>stage.classList.remove('cycle-pulse'),580)}
+    if(G.mode==='clue')updateClue();
+  });
 }
-function updateClue(){const n=G.hints+G.rows.length;const text=n>=4?G.answer.definition:n>=2?'Начинается с буквы «'+G.answer.word[0]+'».':'Раздел — '+G.answer.category;const h=$('hintText');if(h)h.textContent=text}
-function giveHint(){if(G.over)return;if(G.mode!=='clue')return;if(G.hints>=3){$('msg').textContent='Все доступные подсказки уже открыты.';return}G.hints++;const text=G.hints===1?'Раздел — '+G.answer.category:G.hints===2?'Первая буква — «'+G.answer.word[0]+'»':'Определение — '+G.answer.definition;const h=$('hintText');if(h)h.textContent=text}
+
 function updateProgress(){$('progress').style.width=(G.rows.length/G.max*100)+'%'}
 function showResultModal(ok,restored=false){
-  $('answer').textContent=G.answer.word;$('def').textContent=G.answer.definition;$('meta').textContent=G.answer.category+' · '+G.answer.type+' · '+G.answer.difficulty;
-  $('winTitle').textContent=ok?'Победа!':'Игра окончена';
-  $('again').textContent=G.mode==='daily'?'До завтра':'Следующий термин';
+  $('answer').textContent=G.answer.word;$('def').textContent=miniDefinition();$('meta').textContent=G.answer.category+' · '+G.answer.type+' · '+G.answer.difficulty;
+  const s=stats();$('winTitle').textContent=ok?'Победа!':'Игра окончена';$('resultKicker').textContent=ok?'ТЕРМИН РАЗГАДАН':'ПОПЫТКИ ЗАКОНЧИЛИСЬ';$('resultOrb').textContent=ok?'✓':'×';$('resultOrb').style.background=ok?'radial-gradient(circle at 35% 30%,#62e7b8,#19825f 70%)':'radial-gradient(circle at 35% 30%,#a97884,#6b3e4b 70%)';$('resultOrb').style.borderColor=ok?'#63e1b5':'#a36b78';$('resultGuesses').textContent=G.rows.length;$('resultStreak').textContent=s.streak;$('resultRate').textContent=(s.played?Math.round(s.wins/s.played*100):0)+'%';$('again').textContent=G.mode==='daily'?'До завтра':'Следующий термин';$('tomorrowCountdown').classList.toggle('hidden',G.mode!=='daily');
   $('winModal').classList.remove('hidden');
   if(ok&&!restored)launchConfetti();
 }
 function launchConfetti(){const c=$('confetti');c.innerHTML='';for(let i=0;i<24;i++){const el=document.createElement('i');el.style.left=(Math.random()*100)+'%';el.style.animationDelay=(Math.random()*.35)+'s';c.appendChild(el)}setTimeout(()=>c.innerHTML='',1800)}
 function finish(ok){
   if(G.over)return;
-  G.over=true;const s=stats();s.played++;if(ok){s.wins++;s.streak++;s.best=Math.max(s.best,s.streak)}else s.streak=0;s.history.unshift({word:G.answer.word,ok,guesses:G.rows.length});s.history=s.history.slice(0,50);saveStats(s);
-  $('played').textContent=s.played;$('wins').textContent=s.wins;$('streak').textContent=s.streak;$('best').textContent=s.best;
-  if(G.mode==='daily')dailySave({date:todayKey(),answer:G.answer.word,rows:G.rows,over:true,ok,hints:G.hints});
+  G.over=true;
+  const card=$('gameCard');card.classList.remove('game-win','game-loss');card.classList.add(ok?'game-win':'game-loss');
+  const msg=$('msg');msg.className='message '+(ok?'state-win':'state-loss');msg.textContent=ok?'Термин найден — отлично!':'Попытки закончились. Термин показан ниже.';
+  const last=$('board').children[G.rows.length-1];if(last){last.classList.add('last-result');setTimeout(()=>last.classList.remove('last-result'),700)}const s=stats();s.played++;if(ok){s.wins++;s.streak++;s.best=Math.max(s.best,s.streak)}else s.streak=0;s.history.unshift({word:G.answer.word,ok,guesses:G.rows.length});s.history=s.history.slice(0,50);saveStats(s);
+  $('played').textContent=s.played;$('wins').textContent=s.wins;$('streak').textContent=s.streak;$('best').textContent=s.best;$('winRate').textContent=(s.played?Math.round(s.wins/s.played*100):0)+'%';
+  if(G.mode==='daily'){dailySave({date:todayKey(),answer:G.answer.word,rows:G.rows,over:true,ok,hints:G.hints});const dh=dailyHistory().filter(x=>x.date!==todayKey());dh.unshift({date:todayKey(),word:G.answer.word,ok,guesses:G.rows.length});saveDailyHistory(dh);updateDailyPanel()}
   showResultModal(ok,false);
 }
-function updateStats(){const s=stats();['played','wins','streak','best'].forEach(k=>$(k).textContent=s[k]);$('history').innerHTML=(s.history||[]).slice(0,50).map(x=>'<div><b>'+esc(x.word)+'</b><span>'+(x.ok?'✓ '+x.guesses+' попыт.':'× не разгадано')+'</span></div>').join('')||'<div style="color:#9eabc3">Пока пусто</div>'}
-function clearCurrent(){if(G.over)return;G.current=Array(norm(G.answer.norm).length).fill('');renderCurrent();$('msg').textContent=''}
+function updateStats(){const s=stats();['played','wins','streak','best'].forEach(k=>$(k).textContent=s[k]);$('winRate').textContent=(s.played?Math.round(s.wins/s.played*100):0)+'%';$('history').innerHTML=(s.history||[]).slice(0,50).map(x=>'<div><b>'+esc(x.word)+'</b><span>'+(x.ok?'✓ '+x.guesses+' попыт.':'× не разгадано')+'</span></div>').join('')||'<div style="color:#9eabc3">Пока пусто</div>'}
+function clearCurrent(){if(G.over||G.revealing)return;G.current=Array(norm(G.answer.norm).length).fill('');renderCurrent();$('msg').textContent=''}
 
 // Единственный обработчик физической клавиатуры.
 document.addEventListener('keydown',function(e){
@@ -296,9 +622,13 @@ document.addEventListener('keydown',function(e){
 let mobileModeOpen=false;
 function setMobileModeOpen(open){mobileModeOpen=!!open;document.querySelector('.top-actions').classList.toggle('mode-drawer-open',mobileModeOpen)}
 function closeMobileModeOnOutside(e){if(!mobileModeOpen||!window.matchMedia('(max-width:650px)').matches)return;if(!document.querySelector('.top-actions').contains(e.target))setMobileModeOpen(false)}
-$('again').onclick=()=>{if(G.mode==='daily'){ $('winModal').classList.add('hidden'); return; } newGame()};$('hint').onclick=giveHint;$('clear').onclick=clearCurrent;
+let tomorrowTimer=null;
+function updateTomorrowCountdown(){const el=$('tomorrowTime');if(!el)return;const now=new Date(),next=new Date(now);next.setHours(24,0,0,0);const ms=Math.max(0,next-now),h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000),sec=Math.floor(ms%60000/1000);el.textContent=h+'ч '+String(m).padStart(2,'0')+'м '+String(sec).padStart(2,'0')+'с'}
+function keepDailyResultOpen(){const modal=$('winModal');modal.classList.remove('hidden');modal.classList.add('daily-wait','daily-result-unlocked');$('again').textContent='До завтра';$('again').disabled=true;$('again').setAttribute('aria-disabled','true');$('again').style.opacity='.65';$('resultKicker').textContent='СЛОВО ДНЯ ЗАВЕРШЕНО';$('winTitle').textContent='До завтра';$('def').classList.add('hidden');$('meta').classList.add('hidden');$('tomorrowCountdown').classList.remove('hidden');$('dailyPanel')?.classList.remove('visible','done');updateTomorrowCountdown();if(tomorrowTimer)clearInterval(tomorrowTimer);tomorrowTimer=setInterval(updateTomorrowCountdown,1000)}
+$('again').onclick=()=>{if(G.mode==='daily'){keepDailyResultOpen();return}newGame()};$('hint').onclick=giveHint;$('clear').onclick=clearCurrent;
+$('infoBtn').onclick=e=>{e.stopPropagation();$('infoModal').classList.remove('hidden')};$('infoBtn').onmouseenter=()=>{};$('closeInfo').onclick=()=>$('infoModal').classList.add('hidden');$('infoModal').onclick=e=>{if(e.target===$('infoModal'))$('infoModal').classList.add('hidden')};
 $('modeBtn').onclick=e=>{e.stopPropagation();$('modeModal').classList.remove('hidden')};
-const topActions=document.querySelector('.top-actions');let touchStartX=0,touchStartY=0;topActions.addEventListener('touchstart',e=>{const t=e.touches[0];touchStartX=t.clientX;touchStartY=t.clientY},{passive:true});topActions.addEventListener('touchend',e=>{if(!window.matchMedia('(max-width:650px)').matches)return;const t=e.changedTouches[0],dx=t.clientX-touchStartX,dy=t.clientY-touchStartY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){setMobileModeOpen(dx>0)}},{passive:true});document.addEventListener('pointerdown',closeMobileModeOnOutside);$('closeMode').onclick=()=>$('modeModal').classList.add('hidden');$('modeModal').onclick=e=>{if(e.target===$('modeModal'))$('modeModal').classList.add('hidden')};document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{$('mode').value=b.dataset.mode;$('modeModal').classList.add('hidden');setMobileModeOpen(false);newGame()});
+const topActions=document.querySelector('.top-actions');let touchStartX=0,touchStartY=0;topActions.addEventListener('touchstart',e=>{const t=e.touches[0];touchStartX=t.clientX;touchStartY=t.clientY},{passive:true});topActions.addEventListener('touchend',e=>{if(!window.matchMedia('(max-width:650px)').matches)return;const t=e.changedTouches[0],dx=t.clientX-touchStartX,dy=t.clientY-touchStartY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){setMobileModeOpen(dx>0)}},{passive:true});document.addEventListener('pointerdown',closeMobileModeOnOutside);$('closeMode').onclick=()=>$('modeModal').classList.add('hidden');$('modeModal').onclick=e=>{if(e.target===$('modeModal'))$('modeModal').classList.add('hidden')};document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{$('mode').value=b.dataset.mode;syncClassicLengthLimit();$('modeModal').classList.add('hidden');setMobileModeOpen(false);newGame()});
 $('settingsBtn').onclick=e=>{e.stopPropagation();setMobileModeOpen(false);$('settingsModal').classList.remove('hidden')};$('closeSettings').onclick=()=>$('settingsModal').classList.add('hidden');$('applySettings').onclick=()=>{if(G.mode==='daily'){$('msg').textContent='Для «Слова дня» фильтры не меняют ежедневный термин.';$('settingsModal').classList.add('hidden');return}$('settingsModal').classList.add('hidden');newGame()};$('settingsModal').onclick=e=>{if(e.target===$('settingsModal'))$('settingsModal').classList.add('hidden')};
 $('statsBtn').onclick=()=>{setMobileModeOpen(false);$('statsModal').classList.remove('hidden');updateStats()};$('closeStats').onclick=()=>$('statsModal').classList.add('hidden');$('statsModal').onclick=e=>{if(e.target===$('statsModal'))$('statsModal').classList.add('hidden')};
 $('helpBtn').onclick=e=>{e.stopPropagation();setMobileModeOpen(false);$('helpModal').classList.remove('hidden')};$('closeHelp').onclick=()=>$('helpModal').classList.add('hidden');$('helpModal').onclick=e=>{if(e.target===$('helpModal'))$('helpModal').classList.add('hidden')};
